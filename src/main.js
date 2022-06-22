@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 // import ElementUI from './plugins/elements'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './mock/index'
+
 
 import '@/assets/css/base-css.css'
 import '@/icons/iconfont.css'
@@ -27,6 +29,7 @@ new Vue({
   components: { App },
   template: '<App/>',
   router,
+  store,
   beforeCreate(){
     Vue.prototype.$bus = this
   }
