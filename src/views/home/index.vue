@@ -10,7 +10,9 @@
           <Header></Header>
         </el-header>
         <el-main>
-           <router-view />
+          <div class="main">
+               <router-view />
+          </div>
         </el-main>
       </el-container>
     </el-container>
@@ -60,9 +62,9 @@ export default {
   .el-main{
     background-color: #fff;
     .main{
+      height: 100%;
       width: 100%;
-      height:100%;
-      background-color: #f6f6f6;    
+      // background-color: rgb(245, 245, 245);
     }
   }
 }
