@@ -1,13 +1,30 @@
 <template>
-  <div id="myEchart"></div>
+  <div id="myEchart1"></div>
 </template>
 <script>
 import * as echarts from 'echarts/core';
-import { GridComponent } from 'echarts/components';
-import { BarChart } from 'echarts/charts';
+import {
+  TooltipComponent,
+  GridComponent,
+  LegendComponent,
+  MarkLineComponent,
+  MarkPointComponent
+} from 'echarts/components';
+import { LineChart } from 'echarts/charts';
+import { UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
 
-echarts.use([GridComponent, BarChart, CanvasRenderer]);
+echarts.use([
+  TooltipComponent,
+  GridComponent,
+  LegendComponent,
+  MarkLineComponent,
+  MarkPointComponent,
+  LineChart,
+  CanvasRenderer,
+  UniversalTransition
+]);
+
 
 export default {
     mounted(){
@@ -16,35 +33,75 @@ export default {
     methods:{
         initEchart(){
             // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('myEchart'));
+            var myChart = echarts.init(document.getElementById('myEchart1'));
             var option = {
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        top: '4%', 
+                    },
+                    grid:{
+                       bottom:'15%'
+                    },
+
                     xAxis: {
                         type: 'category',
+                        boundaryGap: false,
                         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                     },
                     yAxis: {
-                        type: 'value'
+                        type: 'value',
+                        axisLabel: {
+                        formatter: '{value} °C'
+                        }
                     },
                     series: [
                         {
-                        data: [
-                            120,
-                            {
-                            value: 200,
-                            itemStyle: {
-                                color: '#a90000'
-                            }
-                            },
-                            150,80,70,110,130
-                        ],
-                        type: 'bar',
-                        label:{
-                            show:true,
-                            position: 'top'
+                        name: 'Highest',
+                        type: 'line',
+                        data: [10, 11, 13, 11, 12, 12, 9],
+                        markPoint: {
+                            data: [
+                            { type: 'max', name: 'Max' },
+                            { type: 'min', name: 'Min' }
+                            ]
+                        },
+                        markLine: {
+                            data: [{ type: 'average', name: 'Avg' }]
+                        }
+                        },
+                        {
+                        name: 'Lowest',
+                        type: 'line',
+                        data: [1, -2, 2, 5, 3, 2, 0],
+                        markPoint: {
+                            data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
+                        },
+                        markLine: {
+                            data: [
+                            { type: 'average', name: 'Avg' },
+                            [
+                                {
+                                symbol: 'none',
+                                x: '90%',
+                                yAxis: 'max'
+                                },
+                                {
+                                symbol: 'circle',
+                                label: {
+                                    position: 'start',
+                                    formatter: 'Max'
+                                },
+                                type: 'max',
+                                name: '最高点'
+                                }
+                            ]
+                            ]
                         }
                         }
                     ]
-            };
+             };
 
             option && myChart.setOption(option)
             //随着屏幕大小调节图表
@@ -57,7 +114,7 @@ export default {
 }
 </script>
 <style lang='less' scoped>
-#myEchart{
+#myEchart1{
     height: 100%;
     width: 100%;
 }

@@ -3,23 +3,28 @@
     <HomeOne :homeOneData="homeOneData" />
     <div class="homeTwo">
        <div class="chart">
-           <EchartLine />
+           <EchartBar />
        </div>
        <div class="chart">
            <EchartPie />
+       </div>
+       <div class="chart">
+           <EchartLine />
        </div>
     </div>
   </div>
 </template>
 <script>
 import HomeOne from './homeOne.vue'
-import EchartLine from './echartLine.vue'
+import EchartBar from './echartBar.vue'
 import EchartPie from './echartPie.vue'
+import EchartLine from './echartLine.vue'
 export default { 
   components:{
     HomeOne,
-    EchartLine,
-    EchartPie 
+    EchartBar,
+    EchartPie,
+    EchartLine
   },
   data(){
     return{
@@ -44,8 +49,8 @@ export default {
      display: flex;
      justify-content: space-between;
      .chart{
-      height: 450px;
-      width: 49%;
+      height: 300px;
+      width: 32%;
       box-shadow:0px 2px 8px #888888;
      }
   }

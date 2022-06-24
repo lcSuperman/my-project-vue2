@@ -1,5 +1,5 @@
 <template>
-  <div id="myEchart1"></div>
+  <div id="myEchart2"></div>
 </template>
 <script>
 import * as echarts from 'echarts/core';
@@ -23,21 +23,18 @@ export default {
     methods:{
         initEchart(){
             // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('myEchart1'));
+            var myChart = echarts.init(document.getElementById('myEchart2'));
             var option = {
-                tooltip: {
-                  trigger: 'item'
-                },
                 legend: {
-                    bottom: '10%',
-                   
+                    bottom: '8%', 
+                    type:'scroll'
                 },
                 series: [
                     {
                         name: 'Nightingale Chart',
                         type: 'pie',
-                        radius: [40, 150],
-                        center: ['50%', '45%'],
+                        radius: [40, 90],
+                        center: ['50%', '43%'],
                         roseType: 'area',
                         itemStyle: {
                             borderRadius: 8
@@ -70,7 +67,7 @@ export default {
 }
 </script>
 <style lang='less' scoped>
-#myEchart1{
+#myEchart2{
     height: 100%;
     width: 100%;
 }
