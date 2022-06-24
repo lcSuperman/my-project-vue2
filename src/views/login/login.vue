@@ -54,6 +54,7 @@ export default {
                 if (valid) {
                     setTimeout(() => {
                         this.$router.push('/home')
+                        sessionStorage.setItem('userName',this.userName)
                         this.$message({
                         message: '登录成功，欢迎来到入忍者世界',
                         type: 'success',
