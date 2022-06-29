@@ -64,7 +64,6 @@ export default {
        this.editableTabs.forEach( tab => {
          if(tab.title == newRoute.name) isAddTab = false
        })
-
        if(isAddTab){
            this.editableTabs.push({
               title: newRoute.name,
@@ -75,7 +74,6 @@ export default {
       this.editableTabs.sort(this.compare('number'));
       this.editableTabsValue = newRoute.path;
     }
-
   },
   methods: {
       //数组内根据对象属性排序的方法
