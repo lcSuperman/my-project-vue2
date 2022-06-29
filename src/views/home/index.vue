@@ -73,7 +73,6 @@ export default {
        }
       this.editableTabs.sort(this.compare('number'));
       this.editableTabsValue = newRoute.path;
-      
     }
   },
   methods: {
