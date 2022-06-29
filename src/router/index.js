@@ -45,7 +45,7 @@ const router =  new Router({
           path: 'navigationTwo',
           name:'导航二',
           meta:{
-            number:2
+            number:5
           },
           component: () => import('@/views/navigationTwo')
         },
@@ -53,7 +53,7 @@ const router =  new Router({
           path: 'navigationThree',
           name:'导航三',
           meta:{
-            number:3
+            number:9
           },
           component: () => import('@/views/navigationThree')
         },
@@ -61,7 +61,7 @@ const router =  new Router({
           path: 'navigationFour',
           name:'导航四',
           meta:{
-            number:4
+            number:13
           },
           component: () => import('@/views/navigationFour')
         },
@@ -69,7 +69,7 @@ const router =  new Router({
           path: 'navigationFive',
           name:'导航五',
           meta:{
-            number:5
+            number:17
           },
           component: () => import('@/views/navigationFive')
         },
@@ -77,7 +77,7 @@ const router =  new Router({
           path: 'navigationSix',
           name:'导航六',
           meta:{
-            number:6
+            number:21
           },
           component: () => import('@/views/navigationSix')
         }

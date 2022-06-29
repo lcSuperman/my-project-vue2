@@ -11,13 +11,16 @@
         </el-header>
         <el-main>
           <div class="main">
-               <el-tabs v-model="editableTabsValue" type="card" @tab-click="clickTab(editableTabsValue)" closable @tab-remove="removeTab(editableTabsValue)">
+               <el-tabs v-model="editableTabsValue" type="card" @tab-click="clickTab(editableTabsValue)">
                   <el-tab-pane
                     v-for="(item) in editableTabs"
                     :key="item.name"
-                    :label="item.title"
                     :name="item.name"
-                  >
+                  >  
+                    <span slot="label">
+                       {{item.title}}
+                       <span class="elClose" @click.stop="removeTab(editableTabsValue)"><i :class=" $route.path == item.name && item.name !== '/home'  ? 'el-icon-close' : ''"></i></span>
+                    </span>
                   </el-tab-pane>
               </el-tabs>
               <router-view />
@@ -105,11 +108,12 @@ export default {
               }
             }
           });
+          this.editableTabsValue = activeName;
+          this.$bus.$emit('tabName',activeName)
+          this.$router.push(activeName)
+          this.editableTabs = tabs.filter(tab => tab.name !== targetName);
         }
-        this.editableTabsValue = activeName;
-        this.$bus.$emit('tabName',activeName)
-        this.$router.push(activeName)
-        this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+       
       },
 
       clickTab(targetName){
@@ -143,8 +147,19 @@ export default {
       height: 100%;
       width: 100%;
       // background-color: rgb(245, 245, 245);
-      .el-tabs__header{
-        margin-bottom: 10px;
+       .el-tabs__item{
+        .elClose{
+          color: #409EFF;
+          .el-icon-close{
+            width: 14px;
+          }
+         }
+       }
+      
+      .elClose:hover .el-icon-circle-close{
+        background-color:rgb(185, 184, 184);
+        border-radius: 50%;
+        color:#fff
       }
     }
   }

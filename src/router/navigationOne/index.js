@@ -3,7 +3,7 @@ export default  [
       path: 'one',
       name:'子导航一',
       meta:{
-        number:11
+        number:2
       },
       component:() => import('@/views/navigationOne/one'),
     },
@@ -11,7 +11,7 @@ export default  [
       path: 'two',
       name:'子导航二',
       meta:{
-        number:12
+        number:3
       },
       component:() => import('@/views/navigationOne/two'),
     },
@@ -19,7 +19,7 @@ export default  [
       path: 'three',
       name:'子导航三',
       meta:{
-        number:13
+        number:4
       },
       component:() => import('@/views/navigationOne/three'),
     },
