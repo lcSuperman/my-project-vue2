@@ -23,7 +23,8 @@ export default {
     methods:{
         initEchart(){
             // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('myEchart2'));
+            var myChartDom = document.getElementById('myEchart2')
+            var myChart = echarts.init(myChartDom);
             var option = {
                 legend: {
                     bottom: '8%', 
@@ -61,6 +62,12 @@ export default {
             window.addEventListener("resize", () => {
                 myChart.resize();
             });
+
+           //echart图表随容器大小变化而调节大小
+            // let ro = new ResizeObserver(() => {
+            //     myChart.resize();
+            // });
+            // ro.observe(myChartDom);
 
         }
     }

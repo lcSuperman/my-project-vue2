@@ -11,7 +11,7 @@ Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
-export default new Router({
+const router =  new Router({
   routes: [
     {
       path: '/',
@@ -19,7 +19,7 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'Login',
+      name: '登录页',
       component: Login
     },
     {
@@ -28,6 +28,10 @@ export default new Router({
       children:[
         {
           path: '',
+          name:'首页',
+          meta:{
+            number:1
+          },
           component:() => import('@/views/home/home'),
         },
         {
@@ -39,22 +43,42 @@ export default new Router({
         },
         {
           path: 'navigationTwo',
+          name:'导航二',
+          meta:{
+            number:2
+          },
           component: () => import('@/views/navigationTwo')
         },
         {
           path: 'navigationThree',
+          name:'导航三',
+          meta:{
+            number:3
+          },
           component: () => import('@/views/navigationThree')
         },
         {
           path: 'navigationFour',
+          name:'导航四',
+          meta:{
+            number:4
+          },
           component: () => import('@/views/navigationFour')
         },
         {
           path: 'navigationFive',
+          name:'导航五',
+          meta:{
+            number:5
+          },
           component: () => import('@/views/navigationFive')
         },
         {
           path: 'navigationSix',
+          name:'导航六',
+          meta:{
+            number:6
+          },
           component: () => import('@/views/navigationSix')
         }
       ]
@@ -65,3 +89,5 @@ export default new Router({
   }
 
 })
+
+export default router

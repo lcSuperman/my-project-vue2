@@ -9,18 +9,15 @@
     </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
-    data(){
-        return{
-           isCollapse:false
-        }
-
+    computed:{
+       ...mapState('collapse',['isCollapse'])
     },
 
     methods:{
         collapse(){
-            this.isCollapse = !this.isCollapse
-            this.$bus.$emit('isCollapse',this.isCollapse)
+            this.$store.commit('collapse/CHANGECOLLAPE')
         },
         handleLogout(){
           setTimeout(() => {

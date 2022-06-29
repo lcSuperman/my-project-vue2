@@ -7,7 +7,13 @@ const addPersonOption = {
 
     getters: {
         onePersonName(state){
-           return state.filterTable[0].name
+          if(state.filterTable.length !== 0){
+            var index = state.filterTable.length - 1
+            return state.filterTable[index].name 
+          }else{
+            return ''
+          }
+         
         }
     },
 

@@ -17,9 +17,7 @@
                 <span v-show="!isCollapse">{{item.label}}</span>
             </template>
             <el-menu-item v-for="ite in item.children" :key="ite.id" :index="ite.router"> 
-               
-                  <span>{{ite.label}}</span>
-              
+                <span>{{ite.label}}</span>
             </el-menu-item>
         </el-submenu>
         <el-menu-item v-else :index="item.router" >
@@ -31,32 +29,34 @@
 </template>
 <script>
 import { getMenus} from '@/api'
+import {mapState} from 'vuex'
 export default {
     data(){
         return{
             defaultactive:null,
-            isCollapse:false,
             menusData:[],
         }
     },
     props:['collapseWidth'],
+    computed:{
+       ...mapState('collapse',['isCollapse'])
+    },
     mounted(){
         this.getMenusData()
 
         //浏览器刷新后，从sessionStorage中获取之前保存的菜单index
         this.defaultactive =  sessionStorage.getItem('activeMenu')
-       
         
         //利用事件中心机制触发activeMeus事件设置被点击的菜单，回显点击样式
         this.$bus.$on('activeMeus',value => {
           this.defaultactive = value
         })
-        
-        //利用事件中心机制触发isCollapse事件，设置菜单是否展开
-        this.$bus.$on('isCollapse',value => {
-           this.isCollapse = value
-        })
+
+        this.$bus.$on('tabName',value => {
+           this.handleSelect(value)
+        }) 
     },
+  
     methods:{
         getMenusData(){
             getMenus().then( response => {
