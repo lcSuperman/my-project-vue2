@@ -1,4 +1,5 @@
 # my-project-vue
+该项目用到vue.x+ vue-cli3 + vue-route3 + Vuex3 + element-ui + axios等技术栈，数据是自己mock得到的；
 
 > A Vue.js project
 
