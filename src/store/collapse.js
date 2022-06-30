@@ -27,6 +27,15 @@ export default {
             return tab.name !== name
         })
        },
+       REMOVEALLTABS(state,obj){
+        state.editableTabs = state.editableTabs.filter( tab => {
+            if(!obj.name2){
+                return tab.name == obj.name
+            }else{
+                return tab.name == obj.name ||  tab.name == obj.name2
+            }  
+        })
+       },
        CLICKTABS(state,value){
           state.lastClickTab = value
        }

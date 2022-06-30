@@ -11,16 +11,27 @@
         </el-header>
         <el-main>
           <div class="main">
-               <el-tabs v-model="editableTabsValue" type="card"  @tab-remove="removeTab">
-                  <el-tab-pane
-                    v-for="(item) in editableTabs"
-                    :key="item.name"
-                    :closable="item.title !== '首页' ? true : false"
-                    :label="item.title"
-                    :name="item.name"
-                  >
-                  </el-tab-pane>
-              </el-tabs>
+              <div class="tabs">
+                 <el-tabs v-model="editableTabsValue" type="card"  @tab-remove="removeTab">
+                    <el-tab-pane
+                      v-for="(item) in editableTabs"
+                      :key="item.name"
+                      :closable="item.title !== '首页' ? true : false"
+                      :label="item.title"
+                      :name="item.name"
+                    >
+                    </el-tab-pane>
+                 </el-tabs>
+                 <el-dropdown v-show="this.editableTabs.length > 5" trigger="click" @command="handleCommand">
+                    <span class="el-dropdown-link">
+                      全部关闭<i class="el-icon-arrow-down el-icon--right"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item command="0">关闭所有</el-dropdown-item>
+                      <el-dropdown-item command="1">关闭其他</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+              </div>
               <router-view />
           </div>
         </el-main>
@@ -77,12 +88,14 @@ export default {
           this.$store.commit('collapse/CLICKTABS',tab.name)
           var isHas = true
           this.editableTabs.forEach(item => {
-            if(item.title == tab.title || tab.title == '首页')  isHas = false
+            if(item.title == tab.title)  isHas = false
           });
           if(isHas){
             this.$store.commit('collapse/ADDTABS',tab)
-          } 
-          this.$store.commit('collapse/CHANGETABSVALUE',tab.name)
+          }
+          if(this.editableTabsValue !== tab.name){
+            this.$store.commit('collapse/CHANGETABSVALUE',tab.name)
+          }   
       },
 
       removeTab(tabValue) {
@@ -97,6 +110,16 @@ export default {
             this.$store.commit('collapse/CHANGETABSVALUE',name)
         }
       },
+      handleCommand(command){
+          if(command == '0'){
+              var obj = {name:'home'} 
+              this.$store.commit('collapse/CHANGETABSVALUE',obj.name)
+          }else{
+              var obj = {name:this.editableTabsValue,name2:'home'} 
+          }
+          this.$store.commit('collapse/REMOVEALLTABS',obj)
+        
+      }
     }
 }
 </script>
@@ -121,9 +144,25 @@ export default {
       height: 100%;
       width: 100%;
       // background-color: rgb(245, 245, 245);
-      .el-tabs__header{
-        margin-bottom: 10px;
+      .tabs{
+         position: relative;
+         .el-dropdown{
+            position: absolute;
+            right: 5px;
+            bottom: 23px;
+            .el-dropdown-link {
+                cursor: pointer;
+                color: #409EFF;
+              }
+              .el-icon-arrow-down {
+                font-size: 12px;
+              }
+
+          }
+
       }
+     
+    
     }
   }
 }
