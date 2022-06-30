@@ -4,7 +4,7 @@ Vue.use(Vuex)
 
 import countOptions  from './count'
 import addPersonOption from './addPerson'
-import collapse  from './isCollapse'
+import collapse  from './collapse'
 
 const store =  new Vuex.Store({
   modules:{

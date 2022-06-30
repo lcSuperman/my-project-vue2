@@ -11,16 +11,14 @@
         </el-header>
         <el-main>
           <div class="main">
-               <el-tabs v-model="editableTabsValue" type="card" @tab-click="clickTab(editableTabsValue)">
+               <el-tabs v-model="editableTabsValue" type="card"  @tab-remove="removeTab">
                   <el-tab-pane
                     v-for="(item) in editableTabs"
                     :key="item.name"
+                    :closable="item.title !== '首页' ? true : false"
+                    :label="item.title"
                     :name="item.name"
-                  >  
-                    <span slot="label">
-                       {{item.title}}
-                       <span class="elClose" @click.stop="removeTab(editableTabsValue)"><i :class=" $route.path == item.name && item.name !== '/home'  ? 'el-icon-close' : ''"></i></span>
-                    </span>
+                  >
                   </el-tab-pane>
               </el-tabs>
               <router-view />
@@ -39,14 +37,16 @@ import Home from "./home"
 import {mapState} from 'vuex'
 
 export default {
-  data() {
-      return {
-        editableTabsValue: '/home',
-        editableTabs: []
-      }
-  },
   computed:{
-        ...mapState('collapse',['isCollapse'])
+      ...mapState('collapse',['isCollapse','editableTabs','lastClickTab']),
+      editableTabsValue:{
+        get(){
+          return this.$store.state.collapse.editableTabsValue
+        },
+        set(value){
+          return this.$store.commit('collapse/CHANGETABSVALUE',value)
+        }
+      }
   },
   components:{
     Header,
@@ -55,72 +55,48 @@ export default {
     Home
   },
   mounted(){
-    this.addTab(this.$route)
+    this.addTabs(this.$route)
   },
   watch:{
-    //监控路由变化，把新路由信息添加到标签页
+    //监控route变化，把导航路由添加到tabs中
     $route(newRoute){
-      var isAddTab = true
-       this.editableTabs.forEach( tab => {
-         if(tab.title == newRoute.name) isAddTab = false
-       })
-       if(isAddTab){
-           this.editableTabs.push({
-              title: newRoute.name,
-              name: newRoute.path,
-              number:newRoute.meta.number
-           });
-       }
-      this.editableTabs.sort(this.compare('number'));
-      this.editableTabsValue = newRoute.path;
+      this.addTabs(newRoute)
+    },
+    //监控editableTabsValue变化，跳转路由
+    editableTabsValue(newValue){
+       this.$router.push({name:newValue})
     }
   },
   methods: {
-      //数组内根据对象属性排序的方法
-      compare(property) {
-        return function (obj1, obj2) {
-          let value1 = obj1[property];
-          let value2 = obj2[property];
-          return value1 - value2;     // 升序
+      addTabs(route){
+          var tab = {
+            title:route.meta.title,
+            name:route.name,
+            number:route.meta.number
+          }
+          this.$store.commit('collapse/CLICKTABS',tab.name)
+          var isHas = true
+          this.editableTabs.forEach(item => {
+            if(item.title == tab.title || tab.title == '首页')  isHas = false
+          });
+          if(isHas){
+            this.$store.commit('collapse/ADDTABS',tab)
+          } 
+          this.$store.commit('collapse/CHANGETABSVALUE',tab.name)
+      },
+
+      removeTab(tabValue) {
+        this.$store.commit('collapse/REMOVETABS',tabValue)
+        var isHas = true
+        var name
+         this.editableTabs.forEach(item => {
+            if(item.name == this.lastClickTab)  isHas = false
+          });
+        if(isHas){
+            name = this.editableTabs[this.editableTabs.length -1].name
+            this.$store.commit('collapse/CHANGETABSVALUE',name)
         }
       },
-
-      addTab(route) {
-         this.editableTabs.push({
-              title: route.name,
-              name: route.path,
-              number:route.meta.number
-          });
-        this.editableTabsValue = route.path;
-      },
-
-      removeTab(targetName) {
-        let tabs = this.editableTabs;
-        let activeName = this.editableTabsValue; //当前打开的tab
-        if (activeName === targetName) { //点击关闭的tab == 当前打开的tab
-          tabs.forEach((tab, index) => {
-            if (tab.name === targetName) {
-              let nextTab = tabs[index + 1] || tabs[index - 1];
-              if (nextTab) {
-                activeName = nextTab.name;
-              }
-            }
-          });
-          this.editableTabsValue = activeName;
-          this.$bus.$emit('tabName',activeName)
-          this.$router.push(activeName)
-          this.editableTabs = tabs.filter(tab => tab.name !== targetName);
-        }
-       
-      },
-
-      clickTab(targetName){
-         const arr = this.editableTabs.filter( tab =>{
-            return tab.name == targetName
-         })
-         this.$bus.$emit('tabName',arr[0].name)
-         this.$router.push(arr[0].name)
-      }
     }
 }
 </script>
@@ -145,19 +121,8 @@ export default {
       height: 100%;
       width: 100%;
       // background-color: rgb(245, 245, 245);
-       .el-tabs__item{
-        .elClose{
-          color: #409EFF;
-          .el-icon-close{
-            width: 14px;
-          }
-         }
-       }
-      
-      .elClose:hover .el-icon-circle-close{
-        background-color:rgb(185, 184, 184);
-        border-radius: 50%;
-        color:#fff
+      .el-tabs__header{
+        margin-bottom: 10px;
       }
     }
   }

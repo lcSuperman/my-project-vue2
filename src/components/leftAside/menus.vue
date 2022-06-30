@@ -52,11 +52,12 @@ export default {
           this.defaultactive = value
         })
 
-        this.$bus.$on('tabName',value => {
-           this.handleSelect(value)
-        }) 
     },
-  
+    watch:{
+        $route(newRoute){
+          this.handleSelect(newRoute.path)
+       },
+    },
     methods:{
         getMenusData(){
             getMenus().then( response => {
