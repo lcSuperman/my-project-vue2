@@ -54,6 +54,7 @@ export default {
 
     },
     watch:{
+       //监控路由变化，如果变化就改变active样式
         $route(newRoute){
           this.handleSelect(newRoute.path)
        },

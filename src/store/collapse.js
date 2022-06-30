@@ -15,19 +15,19 @@ export default {
        CHANGECOLLAPE(state){ //改变菜单展开的状态
           state.isCollapse = !state.isCollapse
        },
-       ADDTABS(state,tab){
+       ADDTABS(state,tab){  //添加tabs
          state.editableTabs.push(tab)
          state.editableTabs.sort(compare('number'));
        },
-       CHANGETABSVALUE(state,value){
+       CHANGETABSVALUE(state,value){ //改变tabsValue的值
         state.editableTabsValue = value
        },
-       REMOVETABS(state,name){
+       REMOVETABS(state,name){ //删除tabs
         state.editableTabs = state.editableTabs.filter( tab => {
             return tab.name !== name
         })
        },
-       REMOVEALLTABS(state,obj){
+       REMOVEALLTABS(state,obj){ //关闭全部tabs
         state.editableTabs = state.editableTabs.filter( tab => {
             if(!obj.name2){
                 return tab.name == obj.name
@@ -36,7 +36,7 @@ export default {
             }  
         })
        },
-       CLICKTABS(state,value){
+       CLICKTABS(state,value){ //保存最后一次点击的tabsValue
           state.lastClickTab = value
        }
 
