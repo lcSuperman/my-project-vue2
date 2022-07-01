@@ -12,19 +12,41 @@
            <EchartLine />
        </div>
     </div>
+    <!-- <div class="homeThree">
+       <div class="wordCloud">
+          <EchartWordCloud />
+       </div>
+       <div class="wordCloud1">
+          <EchartWordCloudx />
+       </div>
+    </div> -->
+    <div class="homeFour">
+       <div class="chart">
+           <EchartWordCloud />
+       </div>
+       <div class="china">
+          <EchartChina />
+       </div>
+    </div>
   </div>
 </template>
 <script>
 import HomeOne from './homeOne.vue'
-import EchartBar from './echartBar.vue'
-import EchartPie from './echartPie.vue'
-import EchartLine from './echartLine.vue'
+import EchartBar from './echarts/echartBar.vue'
+import EchartPie from './echarts/echartPie.vue'
+import EchartLine from './echarts/echartLine.vue'
+import EchartWordCloud from './echarts/echartWordCloud.vue'
+import EchartWordCloudx from './echarts/echartWordCloud1.vue'
+import EchartChina from './echarts/echartChina.vue'
 export default { 
   components:{
     HomeOne,
     EchartBar,
     EchartPie,
-    EchartLine
+    EchartLine,
+    EchartWordCloud,
+    EchartWordCloudx,
+    EchartChina
   },
   data(){
     return{
@@ -44,13 +66,42 @@ export default {
 </script>
 <style lang='less' scoped>
 .home{
-  height: 100%;
   .homeTwo{
      display: flex;
      justify-content: space-between;
      .chart{
       height: 300px;
       width: 32%;
+      box-shadow:0px 2px 8px #888888;
+     }
+  }
+  .homeThree{
+    margin-top: 20px;
+     display: flex;
+     justify-content: space-between;
+     .wordCloud{
+        height: 300px;
+        width: 66%;
+        box-shadow:0px 2px 8px #888888;
+     }
+     .wordCloud1{
+        width: 32%;
+        height: 300px;
+        box-shadow:0px 2px 8px #888888;
+     }
+  }
+  .homeFour{
+     margin-top: 20px;
+     display: flex;
+     justify-content: space-between;
+     .chart{
+      height: 400px;
+      width: 49%;
+      box-shadow:0px 2px 8px #888888;
+     }
+     .china{
+      height: 400px;
+      width: 49%;
       box-shadow:0px 2px 8px #888888;
      }
   }

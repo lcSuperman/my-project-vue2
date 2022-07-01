@@ -32,7 +32,8 @@
                     </el-dropdown-menu>
                   </el-dropdown>
               </div>
-              <router-view />
+            
+              <router-view class="routerView"></router-view>
           </div>
         </el-main>
       </el-container>
@@ -76,6 +77,8 @@ export default {
        if(this.editableTabsValue !== newRoute.name){
           this.addTabs(newRoute)
        } 
+      //每次添加都是最后一次点击，所以把点击的name（editableTabsValue）存起来
+        this.$store.commit('collapse/CLICKTABS',newRoute.name)
     },
     //点击标签就会改变editableTabsValue，监控editableTabsValue变化，随着editableTabsValue跳转对应路由
     editableTabsValue(newValue){
@@ -90,8 +93,6 @@ export default {
             name:route.name,
             number:route.meta.number
           }
-          //每次添加都是最后一次点击，所以把点击的name（editableTabsValue）存起来
-          this.$store.commit('collapse/CLICKTABS',tab.name)
           //这里做判断是否添加的导航tab已经存在
           var isHas = true
           this.editableTabs.forEach(item => {
@@ -135,7 +136,7 @@ export default {
     }
 }
 </script>
-<style lang='less' scoped>
+<style lang='less'>
  @import '~@/assets/less/styles.less';
 .homeContainer{
   height: 100%;
@@ -151,30 +152,54 @@ export default {
   }
   .el-main{
     background-color: #fff;
-    padding-top: 10px;
+    padding:10px 10PX 20PX;
     .main{
       height: 100%;
       width: 100%;
       // background-color: rgb(245, 245, 245);
-      .tabs{
-         position: relative;
-         .el-dropdown{
-            position: absolute;
-            right: 5px;
-            bottom: 23px;
-            .el-dropdown-link {
-                cursor: pointer;
-                color: #409EFF;
-              }
-              .el-icon-arrow-down {
-                font-size: 12px;
-              }
-
+      .tabs{   
+        position: relative;
+        padding:0 10px;
+        .el-tabs{
+          .el-tabs__header{
+            margin:0 0 5px !important;
           }
+        }
+        .el-dropdown{
+          position: absolute;
+          right: 5px;
+          bottom: 23px;
+          .el-dropdown-link {
+              cursor: pointer;
+              color: #409EFF;
+            }
+            .el-icon-arrow-down {
+              font-size: 12px;
+            }
 
+        }
       }
-     
-    
+      .routerView{
+         height: calc(100% - 56px);
+         padding:10PX 10PX  10px 10PX;
+         overflow-x: hidden;
+         overflow-y: auto;
+         &::-webkit-scrollbar {
+           width: 3px;
+           overflow-y: auto;
+         }
+        // &::-webkit-scrollbar-thumb {
+        //     border-radius: 5px;
+        //     -webkit-box-shadow: inset 0 0 5px rgba(194, 194, 194, 0.2);
+        //     background: #adadad;
+        // }
+        // &::-webkit-scrollbar-track {
+        //     -webkit-box-shadow: 0;
+        //     border-radius: 0;
+        //     background: #f0f2f5;
+        // }
+         
+      }
     }
   }
 }
