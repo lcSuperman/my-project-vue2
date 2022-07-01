@@ -1,7 +1,10 @@
 # my-project-vue
-该项目用到vue.x+ vue-cli3 + vue-route3 + Vuex3 + element-ui + axios等技术栈，数据是自己mock得到的；
+## 该项目用到vue.x+ vue-cli3 + vue-route3 + Vuex3 + element-ui + axios等技术栈，数据是自己mock得到的；
+### 登录页：
 ![微信截图_20220701170724](https://user-images.githubusercontent.com/46336691/176863707-8f00ede9-ea5c-4d76-a1fd-8bce16a91a64.png)
 
+### 首页：
+![微信截图_20220701170714](https://user-images.githubusercontent.com/46336691/176864046-ff485072-078b-444f-a60d-eed1016aea73.png)
 
 > A Vue.js project
 
