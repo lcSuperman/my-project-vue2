@@ -21,7 +21,7 @@ export default {
                // maskImage: maskImage,
                 left: 'center',
                 top: 'center',
-                width: '98%',
+                width: '100%',
                 height: '90%',
                 right: null,
                 bottom: null,

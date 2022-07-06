@@ -284,6 +284,11 @@ export default {
       let mapDiv = document.getElementById('china_map');
       let myChart = echarts.init(mapDiv);
       myChart.setOption(this.options);
+      //随着屏幕大小调节图表
+      window.addEventListener("resize", () => {
+          myChart.resize();
+      });
+
     },
     //修改echart配制
     setEchartOption(){
@@ -298,17 +303,4 @@ export default {
    #china_map{
         height: 100%;
     }
-</style>
-<style>
-  /* #china_map .tooltip_style{
-      line-height:1.7;
-      overflow: hidden;
-  }
-  #china_map .tooltip_left{
-      float: left;
-  }
-  #china_map .tooltip_right{
-      float: right;
-  } */
-
 </style>

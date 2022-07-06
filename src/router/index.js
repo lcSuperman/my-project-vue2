@@ -86,6 +86,24 @@ const router =  new Router({
             number:25
           },
           component: () => import('@/views/navigationSix')
+        },
+        {
+          path: 'navigationSeven',
+          name:'navigationSeven',
+          meta:{
+            title:'导航七',
+            number:30
+          },
+          component: () => import('@/views/navigationSeven')
+        },
+        {
+          path: 'navigationEight',
+          name:'navigationEight',
+          meta:{
+            title:'导航八',
+            number:35
+          },
+          component: () => import('@/views/navigationEight')
         }
       ]
     }

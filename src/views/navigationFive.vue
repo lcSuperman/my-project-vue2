@@ -1,11 +1,43 @@
 <template>
-    <div>
-         当前页为【导航五】
+  <div class="tinymce">
+      <div class="tinymceLeft">
+        <tinymce-editor ref="editor" @input="jieshou"></tinymce-editor>
     </div>
+    <div class="tinymceRight" v-html="htmlContent"></div>
+  </div>
+  
 </template>
+
 <script>
+import TinymceEditor from '../components/tinymce-editor.vue'
 export default {
+  components: {
+    TinymceEditor
+  },
+  data() {
+    return {
+      htmlContent:''
+    }
+  },
+
+  methods:{
+      jieshou(value){
+       //  console.log('22222',value)
+       this.htmlContent = value
+      }
+  }
 }
 </script>
 <style lang='less' scoped>
+.tinymce{
+    display: flex;
+    justify-content: space-between;
+    .tinymceLeft{
+        width: 70%;
+    }
+    .tinymceRight{
+      border: 1px solid rgb(201, 201, 201);
+      width: 29%;
+    }
+}
 </style>

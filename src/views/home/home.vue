@@ -12,17 +12,17 @@
            <EchartLine />
        </div>
     </div>
-    <!-- <div class="homeThree">
+    <div class="homeThree">
        <div class="wordCloud">
-          <EchartWordCloud />
+            <EchartWordCloud />
        </div>
        <div class="wordCloud1">
-          <EchartWordCloudx />
+          <EchartGauge />
        </div>
-    </div> -->
+    </div>
     <div class="homeFour">
        <div class="chart">
-           <EchartWordCloud />
+         <EchartHenan />
        </div>
        <div class="china">
           <EchartChina />
@@ -36,8 +36,10 @@ import EchartBar from './echarts/echartBar.vue'
 import EchartPie from './echarts/echartPie.vue'
 import EchartLine from './echarts/echartLine.vue'
 import EchartWordCloud from './echarts/echartWordCloud.vue'
-import EchartWordCloudx from './echarts/echartWordCloud1.vue'
 import EchartChina from './echarts/echartChina.vue'
+import EchartHenan from './echarts/echartHenan.vue'
+import EchartGauge from './echarts/echartGauge.vue'
+
 export default { 
   components:{
     HomeOne,
@@ -45,8 +47,9 @@ export default {
     EchartPie,
     EchartLine,
     EchartWordCloud,
-    EchartWordCloudx,
-    EchartChina
+    EchartChina,
+    EchartHenan,
+    EchartGauge
   },
   data(){
     return{

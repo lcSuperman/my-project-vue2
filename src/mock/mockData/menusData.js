@@ -26,18 +26,30 @@ export default  [
       "id":'004',
       "label":'导航四',
       "router":'/home/navigationFour',
-      "icon":'icon-Directory'
+      "icon":'icon-upload1'
     },
     {
       "id":'005',
       "label":'导航五',
       "router":'/home/navigationFive',
-      "icon":'icon-taskbar'
+      "icon":'icon-editor'
     },
     {
       "id":'006',
       "label":'导航六',
       "router":'/home/navigationSix',
       "icon":'icon-table-fill'
+    },
+    {
+      "id":'007',
+      "label":'导航七',
+      "router":'/home/navigationSeven',
+      "icon":'icon-ic_menu_addfoder'
+    },
+    {
+      "id":'008',
+      "label":'导航八',
+      "router":'/home/navigationEight',
+      "icon":'icon-shezhi'
     }
   ]
