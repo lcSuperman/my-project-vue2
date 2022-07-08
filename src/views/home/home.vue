@@ -16,7 +16,7 @@
        <div class="wordCloud">
             <EchartWordCloud />
        </div>
-       <div class="wordCloud1">
+       <div class="Gauge">
           <EchartGauge />
        </div>
     </div>
@@ -28,6 +28,14 @@
           <EchartChina />
        </div>
     </div>
+     <div class="homeFiver">
+       <div class="left">
+         <EchartWordCloud1 />
+       </div>
+       <div class="right">
+         <EchartDynamicline />
+       </div>
+    </div>
   </div>
 </template>
 <script>
@@ -36,9 +44,11 @@ import EchartBar from './echarts/echartBar.vue'
 import EchartPie from './echarts/echartPie.vue'
 import EchartLine from './echarts/echartLine.vue'
 import EchartWordCloud from './echarts/echartWordCloud.vue'
+import EchartWordCloud1 from './echarts/echartWordCloud1.vue'
 import EchartChina from './echarts/echartChina.vue'
 import EchartHenan from './echarts/echartHenan.vue'
 import EchartGauge from './echarts/echartGauge.vue'
+import EchartDynamicline from './echarts/echartDynamicline.vue'
 
 export default { 
   components:{
@@ -47,9 +57,11 @@ export default {
     EchartPie,
     EchartLine,
     EchartWordCloud,
+    EchartWordCloud1,
     EchartChina,
     EchartHenan,
-    EchartGauge
+    EchartGauge,
+    EchartDynamicline
   },
   data(){
     return{
@@ -87,7 +99,7 @@ export default {
         width: 66%;
         box-shadow:0px 2px 8px #888888;
      }
-     .wordCloud1{
+     .Gauge{
         width: 32%;
         height: 300px;
         box-shadow:0px 2px 8px #888888;
@@ -105,6 +117,21 @@ export default {
      .china{
       height: 400px;
       width: 49%;
+      box-shadow:0px 2px 8px #888888;
+     }
+  }
+  .homeFiver{
+     margin-top: 20px;
+     display: flex;
+     justify-content: space-between;
+     .left{
+      height: 400px;
+      width: 32%;
+      box-shadow:0px 2px 8px #888888;
+     }
+     .right{
+      height: 400px;
+      width: 66%;
       box-shadow:0px 2px 8px #888888;
      }
   }
