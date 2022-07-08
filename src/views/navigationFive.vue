@@ -38,6 +38,8 @@ export default {
     .tinymceRight{
       border: 1px solid rgb(201, 201, 201);
       width: 29%;
+      height: 550px;
+      max-height: 100%;
     }
 }
 </style>

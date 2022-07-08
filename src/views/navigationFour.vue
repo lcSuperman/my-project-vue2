@@ -6,7 +6,7 @@
                  <span class="describe">防抖：触发事件后，在n秒内，再次点击触发事件，重新计时，n秒后事件开始响应</span>
                 <div class="debounce">
                    <span>当前n为：<b>{{n}}</b></span><br/>
-                   <el-button :style="{marginTop:'10px',width:'100px'}" type="primary" plain size="mini" v-debounce ="click" >3秒内点击+</el-button>
+                   <el-button :style="{marginTop:'10px',width:'100px'}" type="primary" plain size="mini" v-debounce ="click" >点击3秒后+</el-button>
                    <el-button :style="{marginTop:'10px',width:'60px'}" type="primary" plain size="mini" @click="n = 0">还原</el-button>
                 </div>
             </div>

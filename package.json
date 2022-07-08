@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@antv/g6": "^3.5.10",
     "@tinymce/tinymce-vue": "^3.2.8",
     "axios": "^0.27.2",
     "echarts": "^5.3.3",

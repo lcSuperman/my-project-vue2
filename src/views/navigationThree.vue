@@ -36,7 +36,7 @@
             </el-table-column>
         </el-table>
         <h3 style="marginTop:10px;">此时表格总人数为：{{filterTable.length}}</h3>
-        <h3 style="marginTop:10px;">表格第一个人的名字为：{{onePersonName}}</h3>
+        <h3 style="marginTop:10px;">表格最后一个人的名字为：{{onePersonName}}</h3>
         <h3 style="marginTop:10px;">此时导航二组件的计算总和为：{{count}}</h3>
     </div>
 </template>
