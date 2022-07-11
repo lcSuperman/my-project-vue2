@@ -4,7 +4,7 @@
 
 <script>
 import * as echarts from 'echarts';
-import henan from'../../../utils/henan.json'
+import henan from'../../utils/henan.json'
 echarts.registerMap('henan', henan)
 
 export default {
@@ -59,7 +59,7 @@ export default {
           top:45,
           label: {
             normal: {
-              show:false,
+              show:true,
               fontSize: "12",
               color: "rgba(0,0,0,0.7)"
             }

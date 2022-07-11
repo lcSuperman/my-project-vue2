@@ -4,7 +4,7 @@
 
 <script>
 import * as echarts from 'echarts';
-import china from'../../../utils/china.json'
+import china from '../../utils/china.json'
 echarts.registerMap('china', china)
 
 export default {

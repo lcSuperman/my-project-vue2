@@ -37,48 +37,45 @@ export default {
             var option;
             const updateFrequency = 2000;
             const dimension = 0;
+            
             const countryColors = {
-            Australia: '#00008b',
-            Canada: '#f00',
-            China: '#ffde00',
-            Cuba: '#002a8f',
-            Finland: '#003580',
-            France: '#ed2939',
-            Germany: '#000',
-            Iceland: '#003897',
-            India: '#f93',
-            Japan: '#bc002d',
-            'North Korea': '#024fa2',
-            'South Korea': '#000',
-            'New Zealand': '#00247d',
-            Norway: '#ef2b2d',
-            Poland: '#dc143c',
-            Russia: '#d52b1e',
-            Turkey: '#e30a17',
-            'United Kingdom': '#00247d',
-            'United States': '#b22234'
+                Australia: '#00008b',
+                Canada: '#f00',
+                China: '#ffde00',
+                Cuba: '#002a8f',
+                Finland: '#003580',
+                France: '#ed2939',
+                Germany: '#000',
+                Iceland: '#003897',
+                India: '#f93',
+                Japan: '#bc002d',
+                'North Korea': '#024fa2',
+                'South Korea': '#000',
+                'New Zealand': '#00247d',
+                Norway: '#ef2b2d',
+                Poland: '#dc143c',
+                Russia: '#d52b1e',
+                Turkey: '#e30a17',
+                'United Kingdom': '#00247d',
+                'United States': '#b22234'
             };
-            let p1 = getEchartData().then( res => {
+            getEchartData().then( res => {
                 var result= res.data
                 this.flags =  result
-            })
-
-            let p2 = getEchartData1().then( res => {
+                return getEchartData1()
+            }).then( res => {
                 var result1= res.data
                 this.data =  result1
-            })
-            
-            
-            Promise.all([p1, p2]).then( () => {
-                const flags = this.flags[0];
-                const data = this.data[0];
+            }).then(() => {
+                const flags = this.flags;
+                const data = this.data;
                 const years = [];
                 for (let i = 0; i < data.length; ++i) {
                     if (years.length === 0 || years[years.length - 1] !== data[i][4]) {
                     years.push(data[i][4]);
                     }
                 }
-                 function getFlag(countryName) {
+                function getFlag(countryName) {
                     if (!countryName) {
                     return '';
                     }
@@ -91,12 +88,13 @@ export default {
 
                 let startIndex = 10;
                 let startYear = years[startIndex];
+                
                 option = {
                     grid: {
-                    top: 10,
-                    bottom: 30,
-                    left: 150,
-                    right: 80
+                        top: 10,
+                        bottom: 30,
+                        left: 150,
+                        right: 80
                     },
                     xAxis: {
                     max: 'dataMax',
@@ -119,7 +117,7 @@ export default {
                         show: true,
                         fontSize: 14,
                         formatter: function (value) {
-                        return value + '{flag|' + getFlag(value) + '}';
+                        return value;
                         },
                         rich: {
                         flag: {
@@ -130,8 +128,8 @@ export default {
                     },
                     animationDuration: 300,
                     animationDurationUpdate: 300
-                    },
-                    series: [
+                   },
+                     series: [
                     {
                         realtimeSort: true,
                         seriesLayoutBy: 'column',
@@ -146,15 +144,14 @@ export default {
                         y: 3
                         },
                         label: {
-                        show: true,
-                        precision: 1,
-                        position: 'right',
-                        valueAnimation: true,
-                        fontFamily: 'monospace'
-                        }
+                            show: true,
+                            precision: 1,
+                            position: 'right',
+                            valueAnimation: true,
+                            fontFamily: 'monospace'
+                        },
                     }
-                    ],
-                    // Disable init animation.
+                     ],
                     animationDuration: 0,
                     animationDurationUpdate: updateFrequency,
                     animationEasing: 'linear',
@@ -175,8 +172,9 @@ export default {
                     ]
                     }
                 };
-                  // console.log(option);
+
                 myChart.setOption(option);
+
                 for (let i = startIndex; i < years.length - 1; ++i) {
                     (function (i) {
                     setTimeout(function () {
@@ -193,12 +191,13 @@ export default {
                     myChart.setOption(option);
                 }  
 
+                option && myChart.setOption(option);
+                //随着屏幕大小调节图表
+                window.addEventListener("resize", () => {
+                    myChart.resize();
+                });
+
             })
-           option && myChart.setOption(option);
-            //随着屏幕大小调节图表
-            window.addEventListener("resize", () => {
-                myChart.resize();
-            });
 
            
         }
@@ -207,4 +206,8 @@ export default {
 }
 </script>
 <style lang='less' scoped>
+#main{
+    width: 100%;
+    height: 100%;
+}
 </style>

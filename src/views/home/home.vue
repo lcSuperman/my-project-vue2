@@ -33,22 +33,23 @@
          <EchartWordCloud1 />
        </div>
        <div class="right">
-         <EchartDynamicline />
+         <EchartDTline />
        </div>
     </div>
   </div>
 </template>
 <script>
 import HomeOne from './homeOne.vue'
-import EchartBar from './echarts/echartBar.vue'
-import EchartPie from './echarts/echartPie.vue'
-import EchartLine from './echarts/echartLine.vue'
-import EchartWordCloud from './echarts/echartWordCloud.vue'
-import EchartWordCloud1 from './echarts/echartWordCloud1.vue'
-import EchartChina from './echarts/echartChina.vue'
-import EchartHenan from './echarts/echartHenan.vue'
-import EchartGauge from './echarts/echartGauge.vue'
-import EchartDynamicline from './echarts/echartDynamicline.vue'
+import EchartBar from '@/components/echarts/echartBar.vue'
+import EchartPie from '@/components/echarts/echartPie.vue'
+import EchartLine from '@/components/echarts/echartLine.vue'
+import EchartWordCloud from '@/components/echarts/echartWordCloud.vue'
+import EchartWordCloud1 from '@/components/echarts/echartWordCloud1.vue'
+import EchartChina from '@/components/echarts/echartChina.vue'
+import EchartHenan from '@/components/echarts/echartHenan.vue'
+import EchartGauge from '@/components/echarts/echartGauge.vue'
+import EchartDynamicline from '@/components/echarts/echartDynamicline.vue'
+import EchartDTline from '@/components/echarts/echartDTline.vue'
 
 export default { 
   components:{
@@ -61,7 +62,8 @@ export default {
     EchartChina,
     EchartHenan,
     EchartGauge,
-    EchartDynamicline
+    EchartDynamicline,
+    EchartDTline
   },
   data(){
     return{
