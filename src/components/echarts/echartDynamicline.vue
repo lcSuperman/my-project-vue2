@@ -37,7 +37,7 @@ export default {
             var option;
             const updateFrequency = 2000;
             const dimension = 0;
-            
+
             const countryColors = {
                 Australia: '#00008b',
                 Canada: '#f00',
@@ -140,8 +140,8 @@ export default {
                         }
                         },
                         encode: {
-                        x: dimension,
-                        y: 3
+                            x: dimension,
+                            y: 3
                         },
                         label: {
                             show: true,
