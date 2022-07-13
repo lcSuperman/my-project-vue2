@@ -48,7 +48,6 @@ import EchartWordCloud1 from '@/components/echarts/echartWordCloud1.vue'
 import EchartChina from '@/components/echarts/echartChina.vue'
 import EchartHenan from '@/components/echarts/echartHenan.vue'
 import EchartGauge from '@/components/echarts/echartGauge.vue'
-import EchartDynamicline from '@/components/echarts/echartDynamicline.vue'
 import EchartDTline from '@/components/echarts/echartDTline.vue'
 
 export default { 
@@ -62,7 +61,6 @@ export default {
     EchartChina,
     EchartHenan,
     EchartGauge,
-    EchartDynamicline,
     EchartDTline
   },
   data(){

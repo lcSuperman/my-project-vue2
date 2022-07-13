@@ -66,8 +66,8 @@ export default {
           },
           itemStyle: {
             normal: {
-              //shadowBlur: 50,
-              //shadowColor: 'rgba(0, 0, 0, 0.2)',
+              shadowBlur: 20,
+              shadowColor: 'rgba(0, 0, 0, 0.3)',
               borderColor: "rgba(0, 0, 0, 0.2)"
             },
             emphasis: {

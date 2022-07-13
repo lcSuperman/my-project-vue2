@@ -22,27 +22,13 @@ export default {
             color:'#000000',
             fontSize:13
           },
-          formatter: function(e,) {
-            let data = e.data;
-            //模拟数据
-            data.specialImportant = Math.random()*1000 | 0;
-            data.import = Math.random()*1000 | 0;
-            data.compare = Math.random()*1000 | 0;
-            data.common = Math.random()*1000 | 0;
-            data.specail = Math.random()*1000 | 0;
-
-            let context = `
+          formatter: function(e) {
+             return  `
                <div>
-                   <p><b style="font-size:15px;">${data.name}</b>(2020年第一季度)</p>
-                   <p class="tooltip_style"><span class="tooltip_left">事件总数</span><span class="tooltip_right">${data.value}</span></p>
-                   <p class="tooltip_style"><span class="tooltip_left">特别重大事件</span><span class="tooltip_right">${data.specialImportant}</span></p>
-                   <p class="tooltip_style"><span class="tooltip_left">重大事件</span><span class="tooltip_right">${data.import}</span></p>
-                   <p class="tooltip_style"><span class="tooltip_left">较大事件</span><span class="tooltip_right">${data.compare}</span></p>
-                   <p class="tooltip_style"><span class="tooltip_left">一般事件</span><span class="tooltip_right">${data.common}</span></p>
-                   <p class="tooltip_style"><span class="tooltip_left">特写事件</span><span class="tooltip_right">${data.specail}</span></p>
+                   <p><b style="font-size:15px;">${e.data.name}</b>(2022年第二季度)</p>
+                   <p class="tooltip_style"><span class="tooltip_left">季度GDP为:</span><span class="tooltip_right">${e.data.value}万亿</span></p>
                </div>
             `
-            return context;
           }
         },
         visualMap: {
@@ -52,42 +38,42 @@ export default {
           showLabel:true,
           pieces: [
             {
-              gte: 100,
-              label: ">= 1000",
+              gte: 2500,
+              label: ">=2500",
               color: "#1f307b"
             },
             {
-              gte: 500,
-              lt: 999,
-              label: "500 - 999",
+              gte: 2000,
+              lt: 2500,
+              label: "2000 - 2500",
               color: "#3c57ce"
             },
             {
-              gte: 100,
-              lt:499,
-              label: "100 - 499",
+              gte: 1500,
+              lt:2000,
+              label: "1500 - 2000",
               color: "#6f83db"
             },
             {
-              gte: 10,
-              lt: 99,
-              label: "10 - 99",
+              gte: 1000,
+              lt: 1500,
+              label: "1000 - 1500",
               color: "#9face7"
             },
             {
-              lt:10,
-              label:'<10',
+              lt:1000,
+              label:'<1000',
               color: "#bcc5ee"
             }
           ]
         },
         geo: {
-          map: "china",
+          map: "china", //引入的中国地图
           scaleLimit: {
             min: 1,
             max: 2
           },
-          zoom: 1.6,
+          zoom: 1.6, //地图大小
           top:110,
           label: {
             normal: {
@@ -98,8 +84,8 @@ export default {
           },
           itemStyle: {
             normal: {
-              //shadowBlur: 50,
-              //shadowColor: 'rgba(0, 0, 0, 0.2)',
+              // shadowBlur: 30,
+              // shadowColor: 'rgba(0, 0, 0, 0.4)',
               borderColor: "rgba(0, 0, 0, 0.2)"
             },
             emphasis: {
@@ -112,7 +98,7 @@ export default {
         },
         series:[
             {
-            name: "突发事件",
+            name: "季度GDP",
             type: "map",
             geoIndex: 0,
             data:[]
@@ -123,149 +109,143 @@ export default {
       dataList: [
         {
           name: "南海诸岛",
-          value: 100,
-          eventTotal:100,
-          specialImportant:10,
-          import:10,
-          compare:10,
-          common:40,
-          specail:20
+          value: 400,
         },
         {
           name: "北京市",
-          value: 540
+          value: 4000
         },
         {
           name: "天津市",
-          value: 130
+          value: 3300
         },
         {
           name: "上海市",
-          value: 400
+          value: 3900
         },
         {
           name: "重庆市",
-          value: 750
+          value: 2500
         },
         {
           name: "河北省",
-          value: 130
+          value: 1300
         },
         {
           name: "河南省",
-          value: 830
+          value: 2300
         },
         {
           name: "云南省",
-          value: 110
+          value: 1100
         },
         {
           name: "辽宁省",
-          value: 19
+          value:3300
         },
         {
           name: "黑龙江省",
-          value: 150
+          value: 2300
         },
         {
           name: "湖南省",
-          value: 690
+          value: 1900
         },
         {
           name: "安徽省",
-          value: 60
+          value: 1600
         },
         {
           name: "山东省",
-          value: 39
+          value: 1390
         },
         {
           name: "新疆维吾尔自治区",
-          value: 4
+          value: 1400
         },
         {
           name: "江苏省",
-          value: 31
+          value: 2310
         },
         {
           name: "浙江省",
-          value: 104
+          value: 2900
         },
         {
           name: "江西省",
-          value: 36
+          value: 1880
         },
         {
           name: "湖北省",
-          value: 52
+          value: 1990
         },
         {
           name: "广西壮族自治区",
-          value: 33
+          value: 1630
         },
         {
           name: "甘肃省",
-          value: 7
+          value: 1900
         },
         {
           name: "山西省",
-          value: 5
+          value: 500
         },
         {
           name: "内蒙古自治区",
-          value: 778
+          value: 1778
         },
         {
           name: "陕西省",
-          value: 22
+          value: 1440
         },
         {
           name: "吉林省",
-          value: 4
+          value: 400
         },
         {
           name: "福建省",
-          value: 18
+          value: 3100
         },
         {
           name: "贵州省",
-          value: 5
+          value: 1900
         },
         {
           name: "广东省",
-          value: 98
+          value: 1300
         },
         {
           name: "青海省",
-          value: 1
+          value: 900
         },
         {
           name: "西藏自治区",
-          value: 0
+          value: 600
         },
         {
           name: "四川省",
-          value: 44
+          value: 890
         },
         {
           name: "宁夏回族自治区",
-          value: 4
+          value: 1400
         },
         {
           name: "海南省",
-          value: 22
+          value: 1999
         },
         {
           name: "台湾省",
-          value: 3
+          value: 1800
         },
         {
           name: "香港特别行政区",
-          value: 5
+          value: 1888
         },
         {
           name: "澳门特别行政区",
-          value: 555
+          value: 1555
         }
       ]
     };
