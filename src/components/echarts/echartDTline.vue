@@ -11,7 +11,7 @@ export default {
        inintEchart(){
 
            // 测试数据([ {包括时间，y轴分类，x轴数值}... ])
-	       var newArr = [
+	       var dataArr = [
                 {
                     "cdate": "2000",
                     "cname": "俄罗斯,中国,美国,日本,韩国,英国,法国",
@@ -99,18 +99,12 @@ export default {
             var myChart = echarts.init(echartDom)
 
             var updateFrequency = 1100;	// 数据更新速度时间
-            var years = [];
             var startIndex = 0;
-            for (var i = 0; i < newArr.length; ++i) {
-                years.push(newArr[i])
-            }
-         
-            // years == newArr
 
             // 获取第一条数据
-            var startYear = years[startIndex].cdate; //获取years第一条数据的年份
-            var startName = years[startIndex].cname.split(',');//获取years第一条数据的分类，并且转换为数组
-            var startCut = years[startIndex].cut.split(',');//获取years第一条数据的数值，并且转换为数组
+            var startYear = dataArr[startIndex].cdate; //获取years第一条数据的年份
+            var startName = dataArr[startIndex].cname.split(',');//获取years第一条数据的分类，并且转换为数组
+            var startCut = dataArr[startIndex].cut.split(',');//获取years第一条数据的数值，并且转换为数组
 
             var option ={
                 // 图标的上下左右边界
@@ -139,7 +133,7 @@ export default {
                     }
                 },
                 dataset: {
-                    source: newArr //原始数据
+                    source: dataArr //原始数据
                 },
                  // y 轴数据
                 yAxis: {
@@ -200,11 +194,13 @@ export default {
             }
 
 
-            myChart.setOption(option)
-             for (var i = startIndex; i < newArr.length - 1; ++i) {
+            myChart.setOption(option) //将第一年数据显示出来
+
+            //然后遍历数据，启动定时器，触发更新数据的函数
+             for (var i = startIndex; i < dataArr.length - 1; ++i) {
                 (function (i) {
                     setTimeout(function () {
-                        updateYear(years[i + 1]);
+                        updateYear(dataArr[i + 1]);
                     }, (i + 1) * updateFrequency);
                 })(i);
             }
