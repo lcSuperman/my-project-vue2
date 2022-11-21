@@ -137,7 +137,7 @@ export default {
             text-align: center;
             .container2{
                 position: absolute;
-                bottom: -20px;
+                bottom: -16px;
                 left: 50%;
                 transform: translateX(-50%);
                 width:30%;
@@ -153,7 +153,7 @@ export default {
                z-index: 100;
                left: 50%;
                transform: translateX(-50%);
-               top:-45px;
+               top:-50px;
             }
             .time{
                color: #fff;

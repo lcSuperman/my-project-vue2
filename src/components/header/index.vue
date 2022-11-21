@@ -49,6 +49,7 @@ export default {
        display:flex;
        align-items: center;
        .icon-Shankar{
+          font-size: 20px;
           cursor: pointer;
        }
     }

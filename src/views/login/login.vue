@@ -101,7 +101,7 @@ export default {
     transform: translate(-50%,-50%);
     box-shadow: 0 5px 10px 2px #f0efef;
     border-radius: 10px;
-    padding:20px 0 30px 0;
+    padding:30px 0 50px 0;
     .logo{
       width: 25%;
       height: 30%;

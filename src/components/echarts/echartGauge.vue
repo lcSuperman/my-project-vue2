@@ -62,7 +62,7 @@ export default {
                         valueAnimation: true,
                         formatter: '{value} km/h',
                         color: 'auto',
-                        fontSize:20,
+                        fontSize:15,
                     },
                     data: [
                         {

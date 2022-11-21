@@ -80,8 +80,11 @@ export default {
   background-color:@left-aside;
   transition: width .35s;
   .el-menu-item{
-    font-size:15px; 
+    font-size:20px; 
     color: @left-saide-text;
+  }
+  .el-submenu__title{
+    font-size: 20px;
   }
   .el-menu-item:hover{
      background-color:@menus-hover;
@@ -107,6 +110,7 @@ export default {
   
   .iconfont{
    padding-right: 8px;
+   font-size: 20px;
    color: @left-saide-text;
    
   }

@@ -22,8 +22,8 @@ export default {
   justify-content: space-around;
   align-items: center;
   img{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
   }
 }

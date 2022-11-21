@@ -34,7 +34,7 @@ export default {
         visualMap: {
           show:true,
           left: 20,
-          bottom: 40,
+          bottom: 30,
           showLabel:true,
           textStyle:{
            color:'#fff',
@@ -79,7 +79,7 @@ export default {
             max: 2
           },
           zoom: 1.6, //地图大小
-          top:'30%',
+          top:'31%',
           label: {//地图省份名称
             normal: {
               show:false,
