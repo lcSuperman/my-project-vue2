@@ -10,8 +10,6 @@
                 </div>
                 <div class="container2"></div>
             </div>
-           
-           
         </div>
         <div class="echarts">
             <ul class="grid-content left">
