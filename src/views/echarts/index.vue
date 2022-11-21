@@ -1,12 +1,17 @@
 <template>
     <div class="contents">
         <div class="topTitle">
-            <i class="el-icon-back" @click="logoutDP"></i>
-            <span class="title">华夏金租资产大屏</span>
-            <div class="time">
-                <span>数据日期：</span>
-                <span>2022年11月16日</span>
+            <div class="container">
+                <i class="el-icon-back" @click="logoutDP"></i>
+                <span class="title">华夏金租经营大屏</span>
+                <div class="time">
+                    <span>数据日期：</span>
+                    <span>{{timeDate}}</span>
+                </div>
+                <div class="container2"></div>
             </div>
+           
+           
         </div>
         <div class="echarts">
             <ul class="grid-content left">
@@ -72,6 +77,11 @@ import EchartChina from '@/components/echartChina'
 import EchartLine from '@/components/bigEcharts/echartLine'
 import EchartLineT from '@/components/bigEcharts/echartLineT'
 export default {
+    data(){
+        return {
+          timeDate:null
+        }
+    },
     components:{
         EchartTitle,
         EchartBtns,
@@ -85,7 +95,20 @@ export default {
         OvervDue,
         EchartChina
     },
+    mounted(){
+      this.getDate()
+    },
     methods:{
+        getDate(){
+            var date = new Date()
+            const Y = date.getFullYear()
+            const M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
+            const D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
+            const time = Y + '年' + M + '月' + D + '日'
+
+            this.timeDate = time
+        },
+
         logoutDP(){
              this.$router.push({ path: '/home'})
         }
@@ -96,36 +119,69 @@ export default {
 @import '~@/assets/less/echart.less';
  .contents{
     height: 100%;
+    background: linear-gradient(#02152f,#051e52); 
     .topTitle{
-        height: 100px;
-        text-align: center;
-        line-height: 100px;
-        background-color: @border;
+        width:calc(100% - 40px);
+        height: 60px;
+        border-top: 40px solid #051d63;
+        border-right: 20px solid transparent;
+        border-left: 20px solid transparent;
         position: relative;
-        color: #fff;
-        .title{
-           font-size: 40px;
-           font-weight: 700;
+        .container{
+            position: absolute;
+            left: 50%;
+            top:-34px;
+            transform: translateX(-50%);
+            width:calc(100% - 80px);
+            border-top: 70px solid @border;
+            border-right: 30px solid transparent;
+            border-left: 30px solid transparent;
+            text-align: center;
+            .container2{
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width:30%;
+                border-top: 30px solid @border;
+                border-right: 40px solid transparent;
+                border-left: 40px solid transparent;
+            }
+            .title{
+               color: #fff;
+               font-size: 40px;
+               font-weight: bold;
+               position: absolute;
+               z-index: 100;
+               left: 50%;
+               transform: translateX(-50%);
+               top:-45px;
+            }
+            .time{
+               color: #fff;
+               font-size: 20px;
+               position: absolute;
+               right: 10px;
+               bottom: 50%;
+               transform: translateY(-70%); 
+            }
+            .el-icon-back{
+               color: #fff;
+               font-size: 30px;
+               position: absolute;
+               left: 10px;
+               bottom: 50%;
+               transform: translateY(-70%); 
+               cursor: pointer;
+            }
         }
-        .el-icon-back{
-           position: absolute;
-           left: 1%;
-           top: 50%;
-           transform: translateY(-50%); 
-           font-size: 30px;
-           cursor: pointer;
-        }
-        .time{
-           position: absolute;
-           right: 3%;
-           top: 0;
-           font-size: 20px;
-        }
+       
+        
     }
     .echarts{
         height: calc(100% - 100px);
         width: 100%;
-        background: linear-gradient(#02152f,#051e52); 
+       
         display: flex;
         justify-content: space-between;
         box-sizing: border-box;
