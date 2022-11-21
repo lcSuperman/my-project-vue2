@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/views/login/login'
+import Echarts from '@/views/echarts'
 import navigationOne from './navigationOne'
 import { number } from 'echarts'
 
@@ -22,6 +23,11 @@ const router =  new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/echarts',
+      name: 'echarts',
+      component: Echarts
     },
     {
       path: '/home',

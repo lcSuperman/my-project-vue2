@@ -1,7 +1,5 @@
 <template>
-    <div>
-         当前页为【子导航一】
-    </div>
+  <div>当前页为【子导航一】</div>
 </template>
 <script>
 export default {

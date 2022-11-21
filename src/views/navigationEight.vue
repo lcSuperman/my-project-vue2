@@ -17,7 +17,7 @@ export default {
 .eight{
     .dtline{
         width: 100%;
-        height: 400px;
+        height: 500px;
         background-color: rgb(245, 245, 245);
     }
 }

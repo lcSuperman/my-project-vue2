@@ -28,7 +28,7 @@ export default {
      justify-content: space-between;     
      .graphContainer{
          width: 49%;
-         height: 500px;
+         height: 700px;
      }
 
   }

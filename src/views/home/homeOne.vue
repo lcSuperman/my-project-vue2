@@ -20,12 +20,12 @@ export default {
 </script>
 <style lang='less' scoped>
  .homeOne{
-    height: 120px;
+    height: 150px;
     display: flex;
     justify-content: space-between;
     li{
       width: 17%;
-      height: 80px;
+      height: 110px;
       border-radius: 5px;
       padding: 10px;
       background-image: linear-gradient(#8db9eb, #4a9def);

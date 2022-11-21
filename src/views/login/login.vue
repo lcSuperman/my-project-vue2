@@ -115,7 +115,7 @@ export default {
       }
     }
     .el-form{
-      padding-right: 100px;
+      padding-right: 120px;
       min-width: 300px;
       min-height: 165px;
       .el-button{

@@ -6,7 +6,7 @@ export default  [
         title:'子导航一',
         number:1
       },
-      component:() => import('@/views/navigationOne/one'),
+      component:() => import('@/views/navigationOne/one/index'),
     },
     {
       path: 'two',

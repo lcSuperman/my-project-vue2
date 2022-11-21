@@ -4,6 +4,7 @@
           <i @click="collapse" class="iconfont icon-Shankar"></i>
       </div>
       <div class="right">
+        <el-button size="small" @click="enterDP">可视化大屏</el-button>
         <el-button size="small" @click="handleLogout">退出</el-button>
       </div>
     </div>
@@ -29,6 +30,9 @@ export default {
                 duration:1000
              }) 
           },500) 
+        },
+        enterDP(){
+            this.$router.push({ path: '/echarts'})
         }
     }
 }

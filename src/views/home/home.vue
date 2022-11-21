@@ -85,7 +85,7 @@ export default {
      display: flex;
      justify-content: space-between;
      .chart{
-      height: 300px;
+      height: 400px;
       width: 32%;
       box-shadow:0px 2px 8px #888888;
      }
@@ -95,13 +95,13 @@ export default {
      display: flex;
      justify-content: space-between;
      .wordCloud{
-        height: 300px;
+        height: 400px;
         width: 66%;
         box-shadow:0px 2px 8px #888888;
      }
      .Gauge{
         width: 32%;
-        height: 300px;
+        height: 400px;
         box-shadow:0px 2px 8px #888888;
      }
   }
@@ -110,12 +110,12 @@ export default {
      display: flex;
      justify-content: space-between;
      .chart{
-      height: 400px;
+      height: 500px;
       width: 49%;
       box-shadow:0px 2px 8px #888888;
      }
      .china{
-      height: 400px;
+      height: 500px;
       width: 49%;
       box-shadow:0px 2px 8px #888888;
      }
@@ -125,12 +125,12 @@ export default {
      display: flex;
      justify-content: space-between;
      .left{
-      height: 400px;
+      height: 500px;
       width: 32%;
       box-shadow:0px 2px 8px #888888;
      }
      .right{
-      height: 400px;
+      height: 500px;
       width: 66%;
       box-shadow:0px 2px 8px #888888;
      }

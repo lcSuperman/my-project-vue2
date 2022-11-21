@@ -19,8 +19,8 @@ export default {
           borderColor:'#409eff',
           backgroundColor:'rgba(255,255,255,1)',
           textStyle:{
-            color:'#000000',
-            fontSize:13
+            color:'#000',
+            fontSize:12
           },
           formatter: function(e) {
              return  `
@@ -36,46 +36,51 @@ export default {
           left: 20,
           bottom: 40,
           showLabel:true,
+          textStyle:{
+           color:'#fff',
+          },
           pieces: [
             {
               gte: 2500,
-              label: ">=2500",
-              color: "#1f307b"
+              label: "汽车租赁",
+              color: "#040182"
             },
             {
               gte: 2000,
               lt: 2500,
-              label: "2000 - 2500",
-              color: "#3c57ce"
+              label: "工程机械",
+              color: "#1727b1"
             },
             {
               gte: 1500,
               lt:2000,
-              label: "1500 - 2000",
-              color: "#6f83db"
+              label: "船舶",
+              color: "#1669de"
             },
             {
               gte: 1000,
               lt: 1500,
-              label: "1000 - 1500",
-              color: "#9face7"
+              label: "户用光伏",
+              color: "#5ea2e4"
             },
             {
               lt:1000,
-              label:'<1000',
-              color: "#bcc5ee"
+              label:'产业集群',
+              color: "#a8d9ee"
             }
           ]
         },
         geo: {
+          show:true,
           map: "china", //引入的中国地图
+          aspectScale:0.80,
           scaleLimit: {
             min: 1,
             max: 2
           },
           zoom: 1.6, //地图大小
-          top:110,
-          label: {
+          top:'30%',
+          label: {//地图省份名称
             normal: {
               show:false,
               fontSize: "12",
@@ -97,11 +102,12 @@ export default {
           }
         },
         series:[
-            {
+           {
             name: "季度GDP",
             type: "map",
             geoIndex: 0,
-            data:[]
+            data:[],
+          
           }
         ]
       },
