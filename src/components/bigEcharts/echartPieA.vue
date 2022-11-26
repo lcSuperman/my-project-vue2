@@ -12,6 +12,10 @@ export default {
       pieData:{
         type:Object,
         required: true
+      },
+      doubleNum:{
+        type:Object,
+        required: true
       }
     },
     mounted(){
@@ -24,22 +28,20 @@ export default {
             var option;
             var data = this.pieData.pieData
             var title = this.pieData.title
-            var num = this.pieData.num
-            var num2 = this.pieData.num2
-            console.log((97/100)*0.95)
+            var num = this.doubleNum.num
+            var num2 = this.doubleNum.num2
             data.forEach(item => {
                 if(item.name !== '正常'){
+                    item.selected = true
                     if(item.realValue !== 0){
-                     item.value = ((item.total -  Math.round(((item.nomal/item.total)*0.95) * 100) )/4)*item.realValue
+                      item.value = ((item.total -  Math.round(((item.nomal/item.total)*0.95) * 100) )/4)*item.realValue
                     }else{
-                     item.value = num2/num 
+                      item.value = num2/num 
                     }
-                    
                 }else{
-                    item.value = 92
+                    item.value = Math.round(((item.nomal/item.total)*0.95) * 100)
                 } 
             })
-            console.log(data)
            option = {
                 title: {
                     text: title,
@@ -56,8 +58,10 @@ export default {
                     {
                     name: 'Access From',
                     type: 'pie',
+                    selectedMode: 'multiple',
+                    selectedOffset:6,
                     radius: '50%',
-                    startAngle:110,//第一个数据开始绘制的角度，以正交直角坐标系为标准
+                    startAngle:100,//第一个数据开始绘制的角度，以正交直角坐标系为标准
                     data: data,
                     label: {
                         color:'#FFF',
@@ -96,16 +100,10 @@ export default {
                         : params.labelRect.x + params.labelRect.width;
                          return params;
                     },
-                   
                     emphasis: {
-                        scale:false,//表示不放大item
-                        itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                    }
+                            scale:false,//表示不放大item
+                    },
+                  }
                 ]
             };
             option && myChartP.setOption(option);
