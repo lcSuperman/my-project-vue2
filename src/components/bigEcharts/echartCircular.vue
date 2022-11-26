@@ -46,23 +46,25 @@ export default {
                     {
                         name: title,
                         type: 'pie',//pie类型的图实现环形图
-                        radius: ['45%','75%'],//数组的话，表示内圆和外圆的半径大小，相对于宽高中较小的那一个。
+                        radius:isShow ?  ['30%','50%'] : ['45%','75%'],//数组的话，表示内圆和外圆的半径大小，相对于宽高中较小的那一个。
                         center:['50%','50%'],//圆心坐标
                         avoidLabelOverlap: false,//是否启用防止标签重叠策略
                         startAngle:150,//第一个数据开始绘制的角度，以正交直角坐标系为标准
                         label: {//每个数据的标签
                             show: true,//设置为true则显示第一个数据
                             color:'#FFF',
-                            fontSize:10
+                            fontSize:10,
+
                         },
                         color:[color,'#0a2749'],//系列的颜色
                         emphasis: {
                             scale:false,//表示不放大item
                         },
+
                         labelLine: {
                             show: isShow,
-                            length:2,
-                            length2:4
+                            length:1,
+                            length2:1
                         },
                         data: [
                             {value: count,name: num},
@@ -86,9 +88,8 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     .echartsCirc{
-        height:99%;;
+        height:75%;;
         width: 100%;
     }
     .title{

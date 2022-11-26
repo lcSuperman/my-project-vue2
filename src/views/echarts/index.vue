@@ -14,7 +14,7 @@
         <div class="echarts">
             <ul class="grid-content left">
                 <li class="left-center"> 
-                    <EchartTitle title="资产趋势">
+                    <EchartTitle title="资产统计">
                         <EchartBtns/>
                     </EchartTitle>
                     <EchartLine />
@@ -51,7 +51,7 @@
                     <Overview />  
                 </li>
                 <li class="left-center">
-                    <EchartTitle title="逾期客户" />
+                    <EchartTitle title="客户风险统计" />
                      <OvervDue />   
                 </li>
                 <li class="pieTwo">

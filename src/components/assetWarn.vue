@@ -1,13 +1,13 @@
 <template>
   <div class="assetWarn">
-     <EchartBarT />
+     <EchartBarY />
   </div>
 </template>
 <script>
-import EchartBarT from '@/components/bigEcharts/echartBarT'
+import EchartBarY from '@/components/bigEcharts/echartBarY'
 export default {
     components:{
-        EchartBarT
+        EchartBarY
     }
 }
 </script>

@@ -13,6 +13,7 @@ export default {
             var chartDom = document.getElementById('myEchartBig');
             var myChartA= echarts.init(chartDom);
             var option;
+            var dataX = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
             option = {
                 grid:{//设置图表距离容器位置配置
                   top:'20%',
@@ -43,7 +44,7 @@ export default {
                         },
           
                         {
-                        name: '即将到期合同',
+                        name: '当月到期合同',
                         icon: 'rect',
                         },
           
@@ -54,7 +55,8 @@ export default {
                 },
                 tooltip: {
                     trigger: 'axis',
-                    backgroundColor:'rgba(0,0,0,0.3)',
+                    backgroundColor:'rgba(0,0,0,0.6)',
+                    borderWidth:0,
                     textStyle:{
                       color:'#fff',
                       fontSize:10
@@ -66,99 +68,30 @@ export default {
                             backgroundColor: '#505765'
                         }
                     },
+                    formatter:function (params) {
+                        return `
+                          <div>
+                            <div>${params[0].marker}${params[0].seriesName}：${params[1].value}个/${params[0].value}亿元</div>
+                            <div style="padding:5px 0;">${params[2].marker}${params[2].seriesName}：${params[3].value}个/${params[2].value}亿元</div>
+                            <div>${params[4].marker}${params[4].seriesName}：${params[5].value}个/${params[4].value}亿元</div>
+                          </div>
+                        `
+                        
+                    }
                 },
                 xAxis: {
                     type: 'category',
-                    boundaryGap:false,
+                    boundaryGap:true,
                     axisTick: {
                         show: false,    // 是否显示坐标轴刻度
                     },
-                    data:[
-                      {
-                        value:'1月',
+                    axisLabel: {  
                         textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
+                         color: '#fff',
+                         fontSize:9,
                         }
-                      },
-                      {
-                        value:'2月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'3月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'4月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'5月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'6月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'7月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'8月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'9月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'10月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'11月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'12月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      }
-                    ]
+                    },
+                    data:dataX,
                    
                 },
                 yAxis: [
@@ -228,7 +161,10 @@ export default {
                     {
                         name: '总资产',
                         data: [230, 330, 340, 450, 560, 670, 770,800, 900, 800, 600, 789],
-                        type: 'line',
+                        type: 'bar',
+                        barGap:0,
+                        barWidth : 10,//柱图宽度
+                        stack: 'two',
                         yAxisIndex:'1',
                         symbol: "none",
                         tooltip:{
@@ -254,7 +190,10 @@ export default {
                      {
                         name: '总合同',
                         data: [115, 210, 124, 118, 155, 247, 280,150, 230, 224, 218, 135],
-                        type: 'line',
+                        type: 'bar',
+                        barGap:0,
+                        barWidth : 10,//柱图宽度
+                        stack: 'two',
                         yAxisIndex:'1',
                         symbol: "none",
                         tooltip:{
@@ -265,7 +204,7 @@ export default {
                         
                     },
                      {
-                        name: '即将到期合同',
+                        name: '当月到期合同',
                         data: [100, 200, 124, 168, 135, 147, 180,150, 230, 124, 118, 195],
                         type: 'line',
                         symbol: "none",
@@ -277,9 +216,12 @@ export default {
                         
                     },
                     {
-                        name: '即将到期合同',
+                        name: '当月到期合同',
                         data: [100, 200, 124, 168, 135, 147, 180,150, 230, 124, 118, 195],
-                        type: 'line',
+                        type: 'bar',
+                        barGap:0,
+                        barWidth : 10,//柱图宽度
+                        stack: 'two',
                         yAxisIndex:'1',
                         symbol: "none",
                         tooltip:{

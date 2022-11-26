@@ -43,7 +43,7 @@ export default {
                         icon: 'rect',
                         },
                         {
-                        name: '剩余租金',
+                        name: '未来应收租金',
                         icon: 'rect',
                         },
                          {
@@ -57,7 +57,8 @@ export default {
                 },
                 tooltip: {
                     trigger: 'axis',
-                    backgroundColor:'rgba(0,0,0,0.3)',
+                    backgroundColor:'rgba(0,0,0,0.6)',
+                    borderWidth:0,
                     textStyle:{
                       color:'#fff',
                       fontSize:10
@@ -78,7 +79,7 @@ export default {
                 },
                 xAxis: {
                     type: 'category',
-                    boundaryGap:false,
+                    boundaryGap:true,
                     axisTick: {
                         show: false,    // 是否显示坐标轴刻度
                     },
@@ -197,8 +198,11 @@ export default {
                 series: [
                     {
                         name: '应收租金',
+                        type: 'bar',
+                        barGap:0,
+                        barWidth : 8,//柱图宽度
+                        stack: 'one',
                         data: [889, 1000, 999, 1211, 1233, 1321, 1451,1378, 1456, 1578, 1678, 1800],
-                        type: 'line',
                         symbol: "none",
                         lineStyle: {
                             color: "#5092e2"
@@ -207,16 +211,19 @@ export default {
                     },
                     {
                         name: '实收租金',
-                        data: [600, 800, 777, 1000, 1100, 1200, 1300,1200, 1321, 1560, 1560, 1680],
-                        type: 'line',
+                        type: 'bar',
+                        barGap:0,
+                        barWidth : 8,//柱图宽度
+                        stack: 'two',
+                        data: [600, 800, 777, 1000, 1233, 1200, 1300,1200, 1321, 1560, 1560, 1680],
                         symbol: "none",
                       
                         
                     },
                   
                     {
-                        name: '剩余租金',
-                        data: [121, 132, 110, 178, 145, 124, 123,99, 100, 120, 154, 132],
+                        name: '未来应收租金',
+                        data:  [900, 1500, 1299, 1311, 1333, 1399, 1301,1300, 1556, 1678, 1778, 1900],
                         type: 'line',
                         symbol: "none",
                         
@@ -224,8 +231,11 @@ export default {
                     },
                      {
                         name: '逾期租金',
-                        data: [11, 22, 13, 21, 15, 16, 22,30, 40, 32, 23, 43],
-                        type: 'line',
+                        type: 'bar',
+                        barGap:0,
+                        barWidth : 8,//柱图宽度
+                        stack: 'two',
+                        data: [110, 220, 130, 210, 0, 160, 212,310, 100, 132, 123, 143],
                         symbol: "none",
                        
                         

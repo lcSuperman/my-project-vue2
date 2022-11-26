@@ -1,5 +1,5 @@
 <template>
-   <div  id="myEchartO"></div>
+   <div  id="myEchartY"></div>
 </template>
 <script>
 import * as echarts from 'echarts';
@@ -10,13 +10,12 @@ export default {
     },
     methods:{
         initEchart(){
-            var chartDom = document.getElementById('myEchartO');
-            var myChartO = echarts.init(chartDom);
+            var chartDom = document.getElementById('myEchartY');
+            var myChartY = echarts.init(chartDom);
             var option;
          
             let xAxisData = ['广商租赁','普通融资租赁','汽车租赁','产品集群','工程机械','户用光伏','船舶','办公设备','网约车','风车吊装'];
-            let data3 = [100,23,34,45,56,67,43,121,87,30];
-            let data4 = [30,40,56,20,12,57,50,41,87,40];
+            let data3 = [0,23,34,45,56,67,43,0,87,50];
             var emphasisStyle = {
                 itemStyle: {
                     shadowBlur: 10,
@@ -27,12 +26,8 @@ export default {
                 legend: {
                     data: [
                         {
-                        name: '融资性',
+                        name: '预警',
                         icon: 'rect',
-                        },
-                         {
-                        name: '经营性',
-                        icon: 'rect', // 用矩形替换
                         },
                     ],
                     itemWidth: 12, //矩形宽度
@@ -40,8 +35,7 @@ export default {
                     textStyle:{
                         color:'#cecece'
                     },
-                    right:0,
-                    top:0
+                    right:'0%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -95,44 +89,47 @@ export default {
                 },
                 series: [
                     {
-                    name: '融资性',
-                    type: 'bar',
-                    stack: 'two',
+                    name: '预警',
+                    type: "pictorialBar",
                     emphasis: emphasisStyle,
                     data: data3,
-                    barWidth : 15,//柱图宽度
+                    barWidth : 20,//柱图宽度
+                    symbol:"path://M0,10 L10,10 C5.5,10 5.5,5 5,0 C4.5,5 4.5,10 0,10 z",
                     itemStyle: {
                         normal: {
-                           color: '#5092e2'
+                           color:function(params) { 
+                                var colorList = ['#0066CC','#00CCFF','#FF9900','#990000' ]; 
+                                return    new echarts.graphic.LinearGradient(0,0,0,1,
+                                    [  
+                                        {
+                                        offset: 0,
+                                        color: params.value > 50 ? '#00CCFF' : '#FF9900'
+                                        },
+                                        {
+                                        offset: 1,
+                                        color: params.value > 50 ? '#0066CC' : '#990000'
+                                        },
+                                    ],
+                                    false
+                                    )
+                            }
+
                          }
                      }
 
                     },
-                    {
-                    name: '经营性',
-                    type: 'bar',
-                    stack: 'two',
-                    barWidth : 15,//柱图宽度
-                    emphasis: emphasisStyle,
-                    data: data4,
-                    itemStyle: {
-                        normal: {
-                           color: '#fcc30a'
-                         }
-                     }
-                    }
                 ]
             };
-            option && myChartO.setOption(option);
+            option && myChartY.setOption(option);
             window.addEventListener("resize", () => {
-                myChartO.resize();
+                myChartY.resize();
             });
         }
     }
 }
 </script>
 <style lang='less' scoped>
-#myEchartO{
+#myEchartY{
     height:100%;
     width: 100%;
 }
