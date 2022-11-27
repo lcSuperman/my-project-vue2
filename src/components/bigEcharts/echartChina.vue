@@ -28,7 +28,7 @@ export default {
           map: "china",
           roam: false,// 一定要关闭拖拽
           zoom: 1.6,
-          center: [102, 36], // 调整地图位置
+          center: [102, 37], // 调整地图位置
           aspectScale: 0.80, //长宽比
           label: {
             normal: {
@@ -66,7 +66,7 @@ export default {
             map: "china",
             roam: false,
             zoom: 1.6,
-            center: [102, 36],
+            center: [102, 37],
             data:[],
             // geoIndex: 1,
             aspectScale: 0.80, //长宽比
@@ -199,7 +199,7 @@ export default {
             map: "china",
             roam: false,
             zoom: 1.6,
-            center: [102, 36],
+            center: [102, 37],
             aspectScale: 0.80, //长宽比
             showLegendSymbol: false, // 存在legend时显示
             label: {
@@ -212,7 +212,19 @@ export default {
             },
             itemStyle: {
               normal: {
-                areaColor: "#0d0059",
+                areaColor: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'rgba(15,66,255,1)'
+                        }, {
+                            offset: 1, color: 'rgba(10,29,255,1)'
+                        }],
+                        global: false
+                    },
                 borderColor: "#389dff",
                 borderWidth: 0.5
               },
@@ -236,7 +248,6 @@ export default {
             hoverSymbolSize: 10,
             tooltip: {
               formatter(value) {
-                console.log(value)
                 return value.data.name + "<br/>" + "设备数：" + "22";
               },
               show: true
@@ -263,10 +274,9 @@ export default {
             type: "effectScatter",
             coordinateSystem: "geo",
             data: data1,
-            symbolSize: 15,
+            symbolSize: 12,
             tooltip: {
               formatter(value) {
-                console.log(value)
                 return value.data.name + "<br/>" + "设备数：" + "22";
               },
               show: true

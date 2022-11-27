@@ -1,5 +1,12 @@
 <template>
-  <div class="overview">
+  <div class="overviewContainer">
+    <EchartTitle title="客户风险统计">
+        <div class="gengduo">
+            <span>更多</span>
+            <i class="el-icon-caret-right"></i>
+        </div>
+    </EchartTitle>
+    <div class="overview">
       <ul class="twoPie">
         <li>
             <EchartPieA :echartsId="dataA.echartsId" :doubleNum="dataC"  :pieData="dataA"/>
@@ -9,9 +16,13 @@
         </li>
       </ul>
   </div>
+
+  </div>
+  
 </template>
 <script>
 import EchartPieA from '@/components/bigEcharts/echartPieA'
+import EchartTitle from '@/components/echartTitle'
 export default {
     data(){
        return {
@@ -94,12 +105,16 @@ export default {
 
     },
     components:{
-        EchartPieA
+        EchartPieA,
+        EchartTitle
     },
 }
 </script>
 <style lang='less' scoped>
-.overview{
+.overviewContainer{
+    height: 100%;
+    width: 100%;
+    .overview{
     height: calc(100% - 20px);
     width: 100%;
     .twoPie{
@@ -113,4 +128,6 @@ export default {
         }
     }
 }
+}
+
 </style>

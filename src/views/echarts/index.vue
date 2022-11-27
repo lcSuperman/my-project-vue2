@@ -51,11 +51,9 @@
                     <Overview />  
                 </li>
                 <li class="left-center">
-                    <EchartTitle title="客户风险统计" />
                      <OvervDue />   
                 </li>
                 <li class="pieTwo">
-                    <EchartTitle title="资产预警" />
                     <AssetWarn />
                 </li>
             </ul>

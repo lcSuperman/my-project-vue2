@@ -19,6 +19,9 @@
       </li>
      
     </ul>
+    <div class="threeBtns">
+      <EchartBtns/>
+    </div>
   </div>
 </template>
 <script>
@@ -26,6 +29,7 @@ import EchartChina from '@/components/bigEcharts/echartChina'
 import car from '@/assets/images/car.jpg'
 import boat from '@/assets/images/boat.jpg'
 import computer from '@/assets/images/computer.jpg'
+import EchartBtns from '@/components/echartBtns'
 export default {
     data(){
       return {
@@ -49,7 +53,8 @@ export default {
       }
     },
     components:{
-        EchartChina
+        EchartChina,
+        EchartBtns
     },
     methods:{
       clickBtns(e){
@@ -128,7 +133,7 @@ export default {
            text-align: center;
            .title{
               font-size: 10px;
-              color: #fff;
+              color: #cecece;
             }
         }
        
@@ -139,6 +144,17 @@ export default {
       .active{
           background: rgba(25, 132, 254, 1);
       }
+    }
+    .threeBtns{
+      width: 210px;
+      height: 40px;
+      position: absolute;
+      left:50%;
+      top:15%;
+      transform: translateX(-50%);
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
     }
 }
 </style>

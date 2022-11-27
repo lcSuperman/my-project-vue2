@@ -66,6 +66,11 @@ export default {
         border: 1px solid @hover;
       }
     }
+    .gengduo{
+        color: #b08d54;
+        font-size: 10px;
+        cursor: pointer;
+    }
    
 }
 </style>
