@@ -17,7 +17,7 @@
                     <EchartTitle title="资产统计">
                         <EchartBtns/>
                     </EchartTitle>
-                    <EchartLine />
+                    <AssetStatis />
                 </li>
                 <li >
                     <EchartTitle title="资产出租"/>
@@ -27,7 +27,7 @@
                     <EchartTitle title="业务回款">
                         <EchartBtns/>
                     </EchartTitle>
-                    <EchartLineT/>
+                    <BusinessCol/>
                 </li>
             </ul>
             <ul class="grid-content center">
@@ -72,8 +72,8 @@ import AssetWarn from '@/components/assetWarn'
 import Overview from '@/components/overview'
 import OvervDue from '@/components/overDue'
 import EchartChina from '@/components/echartChina'
-import EchartLine from '@/components/bigEcharts/echartLine'
-import EchartLineT from '@/components/bigEcharts/echartLineT'
+import AssetStatis from '@/components/assetStatis'
+import BusinessCol from '@/components/businessCol'
 export default {
     data(){
         return {
@@ -83,15 +83,15 @@ export default {
     components:{
         EchartTitle,
         EchartBtns,
-        EchartLine,
-        EchartLineT,
         Lease,
         LeaseTwo,
         AssetLease,
         AssetWarn,
         Overview,
         OvervDue,
-        EchartChina
+        EchartChina,
+        AssetStatis,
+        BusinessCol
     },
     mounted(){
       this.getDate()

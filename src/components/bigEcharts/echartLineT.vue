@@ -21,7 +21,7 @@ export default {
                   right:10
                 },
                 legend:{//设置图例配置
-                    bottom:'2%',
+                    bottom:0,
                     type: 'scroll',
                     pageIconSize:[10,10],
                     pageIconColor:'#cfd5db',

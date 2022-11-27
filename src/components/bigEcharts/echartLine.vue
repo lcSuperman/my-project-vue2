@@ -17,11 +17,11 @@ export default {
             option = {
                 grid:{//设置图表距离容器位置配置
                   top:'20%',
-                  bottom:'25%',
+                  bottom:'23%',
                   left:'8%',
                 },
                 legend:{//设置图例配置
-                    bottom:'2%',
+                    bottom:0,
                     type: 'scroll',
                     pageIconSize:[10,10],
                     pageIconColor:'#cfd5db',

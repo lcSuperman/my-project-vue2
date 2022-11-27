@@ -13,258 +13,168 @@ export default {
       //echart 配制option  
       options: {
         tooltip: {
+          show:false,
           triggerOn: "mousemove",   //mousemove、click
           padding:8,
-          borderWidth:1,
-          borderColor:'#409eff',
-          backgroundColor:'rgba(255,255,255,1)',
+          backgroundColor:'rgba(0,0,0,0.6)',
+          borderWidth:0,
           textStyle:{
-            color:'#000',
+            color:'#fff',
             fontSize:12
           },
-          formatter: function(e) {
-             return  `
-               <div>
-                   <p><b style="font-size:15px;">${e.data.name}</b>(2022年第二季度)</p>
-                   <p class="tooltip_style"><span class="tooltip_left">季度GDP为:</span><span class="tooltip_right">${e.data.value}万亿</span></p>
-               </div>
-            `
-          }
         },
-        visualMap: {
-          show:true,
-          left: 20,
-          bottom: 30,
-          showLabel:true,
-          textStyle:{
-           color:'#fff',
-          },
-          pieces: [
-            {
-              gte: 2500,
-              label: "汽车租赁",
-              color: "#040182"
-            },
-            {
-              gte: 2000,
-              lt: 2500,
-              label: "工程机械",
-              color: "#1727b1"
-            },
-            {
-              gte: 1500,
-              lt:2000,
-              label: "船舶",
-              color: "#1669de"
-            },
-            {
-              gte: 1000,
-              lt: 1500,
-              label: "户用光伏",
-              color: "#5ea2e4"
-            },
-            {
-              lt:1000,
-              label:'产业集群',
-              color: "#a8d9ee"
-            }
-          ]
-        },
-        geo: {
-          show:true,
-          map: "china", //引入的中国地图
-          aspectScale:0.80,
-          scaleLimit: {
-            min: 1,
-            max: 2
-          },
-          zoom: 1.6, //地图大小
-          top:'31%',
-          label: {//地图省份名称
+       
+       geo: {
+          map: "china",
+          roam: false,// 一定要关闭拖拽
+          zoom: 1.6,
+          center: [102, 36], // 调整地图位置
+          aspectScale: 0.80, //长宽比
+          label: {
             normal: {
-              show:false,
-              fontSize: "12",
+              show: false, //关闭省份名展示
+              fontSize: "10",
               color: "rgba(0,0,0,0.7)"
+            },
+            emphasis: {
+              show: false
             }
           },
           itemStyle: {
             normal: {
-              // shadowBlur: 30,
-              // shadowColor: 'rgba(0, 0, 0, 0.4)',
-              borderColor: "rgba(0, 0, 0, 0.2)"
+              areaColor: "#0d0059",
+              borderColor: "#389dff",
+              borderWidth: 1, //设置外层边框
+              shadowBlur: 6,
+              shadowOffsetY: 12,
+              shadowOffsetX: -5,
+              shadowColor: "#01012a"
             },
             emphasis: {
-              areaColor: "#f2d5ad",
+              areaColor: "#184cff",
               shadowOffsetX: 0,
               shadowOffsetY: 0,
-              borderWidth: 0
+              shadowBlur: 5,
+              borderWidth: 0,
+              shadowColor: "rgba(0, 0, 0, 0.5)"
             }
           }
         },
         series:[
-           {
-            name: "季度GDP",
+          {
             type: "map",
-            geoIndex: 0,
+            map: "china",
+            roam: false,
+            zoom: 1.6,
+            center: [102, 36],
             data:[],
-          
+            // geoIndex: 1,
+            aspectScale: 0.80, //长宽比
+            showLegendSymbol: false, // 存在legend时显示
+            label: {
+              normal: {
+                show: false
+              },
+              emphasis: {
+                show: false,
+                textStyle: {
+                  color: "#fff"
+                }
+              }
+            },
+            itemStyle: {
+              normal: {
+                areaColor: "#0d0059",
+                borderColor: "#389dff",
+                borderWidth: 0.5
+              },
+              emphasis: {
+                areaColor: "#17008d",
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                shadowBlur: 5,
+                borderWidth: 0,
+                shadowColor: "rgba(0, 0, 0, 0.5)"
+              }
+            }
           }
         ]
       },
-      //echart data
-      dataList: [
-        {
-          name: "南海诸岛",
-          value: 400,
-        },
-        {
-          name: "北京市",
-          value: 4000
-        },
-        {
-          name: "天津市",
-          value: 3300
-        },
-        {
-          name: "上海市",
-          value: 3900
-        },
-        {
-          name: "重庆市",
-          value: 2500
-        },
-        {
-          name: "河北省",
-          value: 1300
-        },
-        {
-          name: "河南省",
-          value: 2300
-        },
-        {
-          name: "云南省",
-          value: 1100
-        },
-        {
-          name: "辽宁省",
-          value:3300
-        },
-        {
-          name: "黑龙江省",
-          value: 2300
-        },
-        {
-          name: "湖南省",
-          value: 1900
-        },
-        {
-          name: "安徽省",
-          value: 1600
-        },
-        {
-          name: "山东省",
-          value: 1390
-        },
-        {
-          name: "新疆维吾尔自治区",
-          value: 1400
-        },
-        {
-          name: "江苏省",
-          value: 2310
-        },
-        {
-          name: "浙江省",
-          value: 2900
-        },
-        {
-          name: "江西省",
-          value: 1880
-        },
-        {
-          name: "湖北省",
-          value: 1990
-        },
-        {
-          name: "广西壮族自治区",
-          value: 1630
-        },
-        {
-          name: "甘肃省",
-          value: 1900
-        },
-        {
-          name: "山西省",
-          value: 500
-        },
-        {
-          name: "内蒙古自治区",
-          value: 1778
-        },
-        {
-          name: "陕西省",
-          value: 1440
-        },
-        {
-          name: "吉林省",
-          value: 400
-        },
-        {
-          name: "福建省",
-          value: 3100
-        },
-        {
-          name: "贵州省",
-          value: 1900
-        },
-        {
-          name: "广东省",
-          value: 1300
-        },
-        {
-          name: "青海省",
-          value: 900
-        },
-        {
-          name: "西藏自治区",
-          value: 600
-        },
-        {
-          name: "四川省",
-          value: 890
-        },
-        {
-          name: "宁夏回族自治区",
-          value: 1400
-        },
-        {
-          name: "海南省",
-          value: 1999
-        },
-        {
-          name: "台湾省",
-          value: 1800
-        },
-        {
-          name: "香港特别行政区",
-          value: 1888
-        },
-        {
-          name: "澳门特别行政区",
-          value: 1555
-        }
-      ]
+      
     };
   },
-  created() {
-    this.setEchartOption();
-  },
+  
   mounted() {
       this.$nextTick(()=>{
-          this.initEchartMap();
+         this.initEchartMap()
+         this.initChina();
       })
   },
   methods: {
+    dealWithData() {
+      var geoCoordMap = {
+        哈尔滨: [126.63, 45.75],
+        北京: [116.46, 39.92],
+        广州: [113.23, 23.16],
+        上海: [121.48, 31.22],
+        郑州: [113.65, 34.76],
+        厦门: [118.1, 24.46],
+        杭州: [120.19, 30.26],
+        攀枝花: [101.718637, 26.582347],
+        东莞: [113.75, 23.04],
+        广州: [113.23, 23.16],
+        太原: [112.53, 37.87],
+        拉萨: [91.11, 29.97],
+        昆明: [102.73, 25.04],
+        深圳: [114.07, 22.62],
+        宿迁: [118.3, 33.96],
+        佛山: [113.11, 23.05],
+        海口: [110.35, 20.02],
+        江门: [113.06, 22.61],
+        大连: [121.62, 38.92],
+        沈阳: [123.38, 41.8],
+        长春: [125.35, 43.88],
+        吉林: [126.57, 43.87],
+        宜宾: [104.56, 29.77],
+        呼和浩特: [111.65, 40.82],
+        成都: [104.06, 30.67],
+        桂林: [110.28, 25.29],
+        齐齐哈尔: [123.97, 47.33],
+        张家界: [110.479191, 29.117096],
+        宜兴: [119.82, 31.36],
+        西安: [108.95, 34.27],
+        遵义: [106.9, 27.7],
+        鄂尔多斯: [109.781327, 39.608266],
+        潍坊: [119.1, 36.62],
+        徐州: [117.2, 34.26],
+        衡水: [115.72, 37.72],
+        乌鲁木齐: [87.68, 43.77],
+        开封: [114.35, 34.79],
+        济南: [117, 36.65],
+        南充: [106.110698, 30.837793],
+        天津: [117.2, 39.13],
+      
+        聊城: [115.97, 36.45],
+        芜湖: [118.38, 31.33],
+        唐山: [118.02, 39.63],
+        丽水: [119.92, 28.45],
+        洛阳: [112.44, 34.7],
+        秦皇岛: [119.57, 39.95],
+        株洲: [113.16, 27.83],
+        石家庄: [114.48, 38.03],
+        长沙: [113, 28.21],
+        衢州: [118.88, 28.97],
+        合肥: [117.27, 31.86],
+        武汉: [114.31, 30.52],
+        大庆: [125.03, 46.58]
+      };
+      var data = [];
+      for (var key in geoCoordMap) {
+        data.push({ name: key, value: geoCoordMap[key] });
+      }
+      return data;
+    },
+
     //初始化中国地图
     initEchartMap() {
       let mapDiv = document.getElementById('china_map');
@@ -276,10 +186,124 @@ export default {
       });
 
     },
-    //修改echart配制
-    setEchartOption(){
-       this.options.series[0].data = this.dataList;
+
+    initChina(){
+      let mapDiv = document.getElementById('china_map');
+      let myChart = echarts.init(mapDiv);
+      var dataValue = this.dealWithData();
+      var data1 = dataValue.splice(0, 4);
+      var option = {
+        series: [
+          {
+            type: "map",
+            map: "china",
+            roam: false,
+            zoom: 1.6,
+            center: [102, 36],
+            aspectScale: 0.80, //长宽比
+            showLegendSymbol: false, // 存在legend时显示
+            label: {
+              normal: {
+                show: false
+              },
+              emphasis: {
+                show: false
+              }
+            },
+            itemStyle: {
+              normal: {
+                areaColor: "#0d0059",
+                borderColor: "#389dff",
+                borderWidth: 0.5
+              },
+              emphasis: {
+                areaColor: "#17008d",
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                shadowBlur: 5,
+                borderWidth: 0,
+                shadowColor: "rgba(0, 0, 0, 0.5)"
+              }
+            }
+          },
+          {
+            name: "",
+            type: "scatter",
+            coordinateSystem: "geo",
+            data: dataValue,
+            symbol: "circle",
+            symbolSize: 8,
+            hoverSymbolSize: 10,
+            tooltip: {
+              formatter(value) {
+                console.log(value)
+                return value.data.name + "<br/>" + "设备数：" + "22";
+              },
+              show: true
+            },
+            encode: {
+              value: 2
+            },
+            label: {
+              formatter: "{b}",
+              position: "right",
+              show: false
+            },
+            itemStyle: {
+              color: "#0efacc"
+            },
+            emphasis: {
+              label: {
+                show: false
+              }
+            }
+          },
+          {
+            name: "Top 5",
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            data: data1,
+            symbolSize: 15,
+            tooltip: {
+              formatter(value) {
+                console.log(value)
+                return value.data.name + "<br/>" + "设备数：" + "22";
+              },
+              show: true
+            },
+            encode: {
+              value: 2
+            },
+            showEffectOn: "render",
+            rippleEffect: {
+              brushType: "stroke",
+              color: "#0efacc",
+              period: 9,
+              scale: 5
+            },
+            hoverAnimation: true,
+            label: {
+              formatter: "{b}",
+              position: "right",
+              show: true
+            },
+            itemStyle: {
+              color: "#0efacc",
+              shadowBlur: 2,
+              shadowColor: "#333"
+            },
+            zlevel: 1
+          }
+        ]
+      };
+      myChart.setOption(option);
+      //随着屏幕大小调节图表
+      window.addEventListener("resize", () => {
+          myChart.resize();
+      });
     }
+
+
   }
  
 };
