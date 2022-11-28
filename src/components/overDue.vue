@@ -1,7 +1,7 @@
 <template>
   <div class="overviewContainer">
     <EchartTitle title="客户风险统计">
-        <div class="gengduo">
+        <div class="gengduo" @click="clickGD">
             <span>更多</span>
             <i class="el-icon-caret-right"></i>
         </div>
@@ -108,6 +108,11 @@ export default {
         EchartPieA,
         EchartTitle
     },
+    methods:{
+        clickGD(){
+            this.$router.push({path:'/echarts/tableOne'})
+        }
+    }
 }
 </script>
 <style lang='less' scoped>

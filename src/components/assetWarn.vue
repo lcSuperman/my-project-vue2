@@ -1,7 +1,7 @@
 <template>
     <div class="assetWarnContainer">
     <EchartTitle title="资产预警">
-        <div class="gengduo">
+        <div class="gengduo" @click="clickGD">
             <span>更多</span>
             <i class="el-icon-caret-right"></i>
         </div>
@@ -19,6 +19,11 @@ export default {
     components:{
         EchartBarY,
         EchartTitle
+    },
+     methods:{
+        clickGD(){
+            this.$router.push({path:'/echarts/tableTwo'})
+        }
     }
 }
 </script>

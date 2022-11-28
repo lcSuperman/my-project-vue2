@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/views/login/login'
-import Echarts from '@/views/echarts'
+import Echarts from '@/views/echarts/firstScreen/index'
+import Echarts2 from '@/views/echarts/twoScreen/index'
 import navigationOne from './navigationOne'
 import { number } from 'echarts'
 
@@ -23,11 +24,6 @@ const router =  new Router({
       path: '/login',
       name: 'login',
       component: Login
-    },
-    {
-      path: '/echarts',
-      name: 'echarts',
-      component: Echarts
     },
     {
       path: '/home',
@@ -112,7 +108,36 @@ const router =  new Router({
           component: () => import('@/views/navigationEight')
         }
       ]
-    }
+    },
+    {
+      path: '/echarts',
+      component: Echarts,
+      children:[
+        {
+          path: '',
+          name: 'echarts',
+          component: () => import('@/views/echarts/firstScreen/main/index')
+        },
+        {
+          path: 'tableOne',
+          name: 'tableOne',
+          component: () => import('@/views/echarts/firstScreen/tableForm/tableOne')
+        },
+        {
+          path: 'tableTwo',
+          name: 'tableTwo',
+          component: () => import('@/views/echarts/firstScreen/tableForm/tableTwo')
+        }
+      ]
+      
+    },
+    {
+      path: '/echarts2',
+      name: 'Echarts2',
+      component: Echarts2,
+      
+    },
+
   ],
   scrollBehavior: () => {
     history.pushState(null, null, document.URL)

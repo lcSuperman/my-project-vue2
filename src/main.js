@@ -9,6 +9,9 @@ import ElementUI from 'element-ui';
 import 'lib-flexible/flexible'
 import 'element-ui/lib/theme-chalk/index.css';
 import './mock/index'
+// 这个是你刚刚写的index.js的路径
+import tableHeight from '@/utils/directs/VtableHeight'
+
 
 
 import '@/assets/css/base-css.css'
@@ -20,6 +23,8 @@ Vue.use(ElementUI)
 // ElementUI.forEach(element => {
 //   Vue.use(element)
 // })
+// 表格自适应指令
+Vue.use(tableHeight)
 
 window.addEventListener('popstate', function() {
   history.pushState(null, null, document.URL)

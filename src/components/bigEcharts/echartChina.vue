@@ -219,7 +219,7 @@ export default {
                         x2: 0,
                         y2: 1,
                         colorStops: [{
-                            offset: 0, color: 'rgba(15,66,255,1)'
+                            offset: 0, color: 'rgba(36,83,255,1)'
                         }, {
                             offset: 1, color: 'rgba(10,29,255,1)'
                         }],
@@ -244,7 +244,7 @@ export default {
             coordinateSystem: "geo",
             data: dataValue,
             symbol: "circle",
-            symbolSize: 8,
+            symbolSize: 10,
             hoverSymbolSize: 10,
             tooltip: {
               formatter(value) {
@@ -261,7 +261,7 @@ export default {
               show: false
             },
             itemStyle: {
-              color: "#0efacc"
+              color: "#e0eb40"
             },
             emphasis: {
               label: {
@@ -274,7 +274,7 @@ export default {
             type: "effectScatter",
             coordinateSystem: "geo",
             data: data1,
-            symbolSize: 12,
+            symbolSize: 15,
             tooltip: {
               formatter(value) {
                 return value.data.name + "<br/>" + "设备数：" + "22";
@@ -287,7 +287,7 @@ export default {
             showEffectOn: "render",
             rippleEffect: {
               brushType: "stroke",
-              color: "#0efacc",
+              color: "#e0eb40",
               period: 9,
               scale: 5
             },
@@ -298,7 +298,7 @@ export default {
               show: true
             },
             itemStyle: {
-              color: "#0efacc",
+              color: "#e0eb40",
               shadowBlur: 2,
               shadowColor: "#333"
             },

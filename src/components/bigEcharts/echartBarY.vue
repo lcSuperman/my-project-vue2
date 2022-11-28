@@ -24,6 +24,7 @@ export default {
             };
             option = {
                 legend: {
+                    show:false,
                     data: [
                         {
                         name: '预警',
