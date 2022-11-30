@@ -40,18 +40,18 @@ export default {
   color:#b08d54 ;
 }
 ::-webkit-scrollbar {
-  height: 10px;
-  width: 15px;
+  height: 5px;
+  width: 10px;
   overflow-y: auto;
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 5px;
     -webkit-box-shadow: inset 0 0 5px rgba(89, 89, 89, 0.2);
-    background: #d5d5d5;
+    background:#b08d54;
 }
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: 0;
     border-radius: 0;
-    background: #f4f5f6;
+    background:rgba(255, 255, 255, 0);;
 }
 </style>

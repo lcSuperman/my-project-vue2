@@ -54,17 +54,15 @@ export default {
                             show: true,//设置为true则显示第一个数据
                             color:'#FFF',
                             fontSize:10,
-
                         },
                         color:[color,'#0a2749'],//系列的颜色
                         emphasis: {
                             scale:false,//表示不放大item
                         },
-
                         labelLine: {
                             show: isShow,
-                            length:1,
-                            length2:1
+                            length: 5,
+                            length2: 0,
                         },
                         data: [
                             {value: count,name: num},

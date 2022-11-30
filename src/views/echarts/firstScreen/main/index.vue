@@ -3,7 +3,7 @@
             <ul class="grid-content left">
                 <li class="left-center"> 
                     <EchartTitle title="资产统计">
-                        <EchartBtns/>
+                        <EchartBtns :btns ="staticsBtns"/>
                     </EchartTitle>
                     <AssetStatis />
                 </li>
@@ -13,7 +13,7 @@
                 </li>
                 <li>
                     <EchartTitle title="业务回款">
-                        <EchartBtns/>
+                        <EchartBtns :btns ="backBtns" />
                     </EchartTitle>
                     <BusinessCol/>
                 </li>
@@ -60,6 +60,13 @@ import EchartChina from '@/components/echartChina'
 import AssetStatis from '@/components/assetStatis'
 import BusinessCol from '@/components/businessCol'
 export default {
+     data(){
+        return {
+            staticsBtns:{all:0,finance:1,manage:2},
+            backBtns:{all:3,finance:4,manage:5},
+
+        }
+     },
      components:{
         EchartTitle,
         EchartBtns,

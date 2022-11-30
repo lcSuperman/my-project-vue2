@@ -4,15 +4,12 @@
 <script>
 import * as echarts from 'echarts';
 export default {
-    mounted(){
-      this.initEchart()
-    },
     methods:{
-        initEchart(){
+        initEchart(echartData){
             var chartDom = document.getElementById('myEchartBigB');
             var myChartB = echarts.init(chartDom);
             var option;
-
+        
             option = {
                 grid:{//设置图表距离容器位置配置
                   top:'10%',
@@ -83,92 +80,24 @@ export default {
                     axisTick: {
                         show: false,    // 是否显示坐标轴刻度
                     },
-                    data:[
-                      {
-                        value:'1月',
+                    data:echartData.dataX,
+                    axisLabel: {  
                         textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'2月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'3月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'4月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'5月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'6月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'7月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'8月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'9月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'10月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'11月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      },
-                      {
-                        value:'12月',
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#FFF'
-                        }
-                      }
-                    ]
+                         color: '#cfd5db',
+                         fontSize:9,
+                        },
+                        formatter: function (params) {
+                            var date = new Date()
+                            const Y = date.getFullYear()
+                            var temp
+                            if(params == '1月'){
+                              temp = params + "\n" + Y;
+                            }else{
+                              temp = params
+                            }
+                            return temp
+                        },
+                    },
                    
                 },
                 yAxis: [
@@ -202,7 +131,7 @@ export default {
                         barGap:0,
                         barWidth : 8,//柱图宽度
                         stack: 'one',
-                        data: [889, 1000, 999, 1211, 1233, 1321, 1451,1378, 1456, 1578, 1678, 1800],
+                        data:echartData.data1,
                         symbol: "none",
                         lineStyle: {
                             color: "#5092e2"
@@ -215,7 +144,7 @@ export default {
                         barGap:0,
                         barWidth : 8,//柱图宽度
                         stack: 'two',
-                        data: [600, 800, 777, 1000, 1233, 1200, 1300,1200, 1321, 1560, 1560, 1680],
+                        data: echartData.data2,
                         symbol: "none",
                       
                         
@@ -223,7 +152,7 @@ export default {
                   
                     {
                         name: '未来应收租金',
-                        data:  [900, 1500, 1299, 1311, 1333, 1399, 1301,1300, 1556, 1678, 1778, 1900],
+                        data: echartData.data3,
                         type: 'line',
                         symbol: "none",
                         
@@ -235,7 +164,7 @@ export default {
                         barGap:0,
                         barWidth : 8,//柱图宽度
                         stack: 'two',
-                        data: [110, 220, 130, 210, 0, 160, 212,310, 100, 132, 123, 143],
+                        data: echartData.data4,
                         symbol: "none",
                        
                         

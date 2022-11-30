@@ -83,6 +83,24 @@ export default {
          {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
          {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
          {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
+         {name: '100021',card: '离线预警',line: '叉车',day: '品牌一',range: '1234',count: '原因一：放假啊落后十多分',nomal: '2022-11-31 12:00:00'}, 
          ]
       }
    },
@@ -165,7 +183,7 @@ export default {
          tr{
            background:rgba(255, 255, 255, 0);
          }
-         td.el-table__cell, th.el-table__cell.is-leaf{
+         td.el-table__cell, th.el-table__cell{
               background:rgba(255, 255, 255, 0);
               border-bottom:1px solid #2ba7b1;
          }

@@ -1,8 +1,8 @@
 <template>
     <div class="btns" @click="clickBtns">
-       <button class="left-btn" name="0" :class="{isActive: activeNum == '0' ? true : false}">全部</button>
-       <button class="middle-btn" name="1" :class="{isActive: activeNum == '1' ? true : false}">融资性</button>
-       <button class="right-btn" name="2" :class="{isActive: activeNum == '2' ? true : false}">经营性</button>
+       <button class="left-btn" :name="btns.all" :class="{isActive: activeNum == btns.all ? true : false}">全部</button>
+       <button class="middle-btn" :name="btns.finance" :class="{isActive: activeNum == btns.finance ? true : false}">融资性</button>
+       <button class="right-btn" :name="btns.manage" :class="{isActive: activeNum == btns.manage ? true : false}">经营性</button>
     </div>
 
 </template>
@@ -10,13 +10,21 @@
 export default {
     data(){
         return{
-          activeNum:0,
+          activeNum:this.btns.all,
         }
+    },
+    props:{
+       btns:Object,
+    },
+    mounted(){
+      
     },
     methods:{
      clickBtns(e){
-       console.log(e.target.name)
-       this.activeNum = e.target.name
+       var value = e.target.name
+       this.activeNum = value
+       this.$bus.$emit('clickThreeBtns', value)
+    
      }
    }
 }

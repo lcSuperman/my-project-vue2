@@ -205,7 +205,7 @@ export default {
          tr{
            background:rgba(255, 255, 255, 0);
          }
-         td.el-table__cell, th.el-table__cell.is-leaf{
+         td.el-table__cell, th.el-table__cell{
               background:rgba(255, 255, 255, 0);
               border-bottom:1px solid #2ba7b1;
          }

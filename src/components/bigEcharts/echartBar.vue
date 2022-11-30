@@ -8,21 +8,14 @@ export default {
       echartId:{
          type: String,
          required: true
-      },
-      echartData:{
-         type: Array,
-         required: true
       }
     },
-    mounted(){
-      this.initEchart()
-    },
     methods:{
-        initEchart(){
+        initEchart(echartData){
             var chartDom = document.getElementById(this.echartId);
             var myChartG = echarts.init(chartDom);
             var option;
-            var data = this.echartData
+            var data = echartData
             var barWidth = 12;
             var maxNum = 0;
             for (var i = 0; i < data.length; i++) {
@@ -37,6 +30,32 @@ export default {
                     right: '25%',
                     bottom: '10%',
                 },
+                 tooltip: {
+                    backgroundColor:'rgba(0,0,0,0.6)',
+                    borderWidth:0,
+                    textStyle:{
+                        color:'#cecece',
+                        fontSize:10
+                    },
+                    formatter:function(params){
+                        var percent = Number((params.data.realValue / params.data.total));
+                        var virtualValue = Number((maxNum * percent)).toFixed(0);
+                        var percent = Number((virtualValue / maxNum) * 100).toFixed(0) + '%';
+                        return `
+                          <div>
+                            <h3>${params.name}</h3>
+                            <div style="margin:10px 0;">
+                               <span style="padding:0 5px 0 0;">${params.marker}</span><span>出租率：</span> <span>${percent}</span>
+                            </div>
+                            <div>
+                               <span style="padding:0 5px 0 0;">${params.marker}</span><span>出租数：</span> <span>${params.data.realValue}</span>
+                            </div>
+                          </div>
+                        `
+                    }
+                   
+                },
+                
                 xAxis: {
                     show: false,
                 },
@@ -62,8 +81,10 @@ export default {
                              var percent = Number((item.count / item.total));
                              var virtualValue = Number((maxNum * percent)).toFixed(0);
                             return {
+                                realValue:item.count,
                                 value: virtualValue,
                                 maxNum: maxNum,
+                                total:item.total
                             };
                         }),
                         label: {
@@ -95,6 +116,7 @@ export default {
                             return {
                                 realValue: item.count,
                                 value: maxNum,
+                                total:item.total
                             };
                         }),
                         label: {

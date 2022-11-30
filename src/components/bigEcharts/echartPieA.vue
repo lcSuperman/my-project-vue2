@@ -70,10 +70,8 @@ export default {
                         formatter: function(params){
                             var a
                             if(params.data.name !== '正常'){
-                                 //a =params.data.realValue !=0 ?  ((params.data.realValue/(params.data.total - params.data.nomal))*0.05*100).toFixed(2) : 0.00
                                  a =params.data.realValue !=0 ?  ((params.data.realValue/params.data.total )*100).toFixed(2) : 0.00
                             }else{
-                                // a = params.data.total - params.data.nomal > 0 ? 95 : 100
                                  a = ((params.data.realValue/params.data.total)*100).toFixed(2)
                             }
                             

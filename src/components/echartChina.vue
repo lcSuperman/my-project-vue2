@@ -1,6 +1,6 @@
 <template>
   <div class="echartChina">
-    <EchartChina />
+    <EchartChina ref="myEchart4"/>
     <div class="sumNumber">
       <ul class="container">
          <li v-for="(item ,index ) in sum" :key="index">
@@ -20,7 +20,7 @@
      
     </ul>
     <div class="threeBtns">
-      <EchartBtns/>
+      <EchartBtns :btns ="chinaBtns"/>
     </div>
   </div>
 </template>
@@ -33,6 +33,7 @@ import EchartBtns from '@/components/echartBtns'
 export default {
     data(){
       return {
+         chinaBtns:{all:6,finance:7,manage:8},
          clickTitle:'全部',
          sum:[
           {title:'资产规模 (亿元)',count:'1328'},
@@ -49,17 +50,173 @@ export default {
           {image:boat,title:'风车吊装'},
           {image:computer,title:'户用光伏'},
           {image:boat,title:'船舶'}
-         ]
+         ],
+         geoCoordMap:{
+          哈尔滨: [126.63, 45.75],
+          北京: [116.46, 39.92],
+          广州: [113.23, 23.16],
+          上海: [121.48, 31.22],
+          郑州: [113.65, 34.76],
+          厦门: [118.1, 24.46],
+          杭州: [120.19, 30.26],
+          攀枝花: [101.718637, 26.582347],
+          东莞: [113.75, 23.04],
+          广州: [113.23, 23.16],
+          太原: [112.53, 37.87],
+          拉萨: [91.11, 29.97],
+          昆明: [102.73, 25.04],
+          深圳: [114.07, 22.62],
+          宿迁: [118.3, 33.96],
+          佛山: [113.11, 23.05],
+          海口: [110.35, 20.02],
+          江门: [113.06, 22.61],
+          大连: [121.62, 38.92],
+          沈阳: [123.38, 41.8],
+          长春: [125.35, 43.88],
+          吉林: [126.57, 43.87],
+          宜宾: [104.56, 29.77],
+          呼和浩特: [111.65, 40.82],
+          成都: [104.06, 30.67],
+          桂林: [110.28, 25.29],
+          齐齐哈尔: [123.97, 47.33],
+          张家界: [110.479191, 29.117096],
+          宜兴: [119.82, 31.36],
+          西安: [108.95, 34.27],
+          遵义: [106.9, 27.7],
+          鄂尔多斯: [109.781327, 39.608266],
+          潍坊: [119.1, 36.62],
+          徐州: [117.2, 34.26],
+          衡水: [115.72, 37.72],
+          乌鲁木齐: [87.68, 43.77],
+          开封: [114.35, 34.79],
+          济南: [117, 36.65],
+          南充: [106.110698, 30.837793],
+          天津: [117.2, 39.13],
+          聊城: [115.97, 36.45],
+          芜湖: [118.38, 31.33],
+          唐山: [118.02, 39.63],
+          丽水: [119.92, 28.45],
+          洛阳: [112.44, 34.7],
+          秦皇岛: [119.57, 39.95],
+          株洲: [113.16, 27.83],
+          石家庄: [114.48, 38.03],
+          长沙: [113, 28.21],
+          衢州: [118.88, 28.97],
+          合肥: [117.27, 31.86],
+          武汉: [114.31, 30.52],
+          大庆: [125.03, 46.58]
+         },
+         geoCoordMap1:{
+            哈尔滨: [126.63, 45.75],
+            北京: [116.46, 39.92],
+            广州: [113.23, 23.16],
+            上海: [121.48, 31.22],
+            郑州: [113.65, 34.76],
+            厦门: [118.1, 24.46],
+            杭州: [120.19, 30.26],
+            攀枝花: [101.718637, 26.582347],
+            东莞: [113.75, 23.04],
+            广州: [113.23, 23.16],
+            太原: [112.53, 37.87],
+            拉萨: [91.11, 29.97],
+            昆明: [102.73, 25.04],
+            深圳: [114.07, 22.62],
+            宿迁: [118.3, 33.96],
+            佛山: [113.11, 23.05],
+            海口: [110.35, 20.02],
+         },
+         geoCoordMap2:{
+            江门: [113.06, 22.61],
+            大连: [121.62, 38.92],
+            沈阳: [123.38, 41.8],
+            长春: [125.35, 43.88],
+            吉林: [126.57, 43.87],
+            宜宾: [104.56, 29.77],
+            呼和浩特: [111.65, 40.82],
+            成都: [104.06, 30.67],
+            桂林: [110.28, 25.29],
+            齐齐哈尔: [123.97, 47.33],
+            张家界: [110.479191, 29.117096],
+            宜兴: [119.82, 31.36],
+            西安: [108.95, 34.27],
+            遵义: [106.9, 27.7],
+            鄂尔多斯: [109.781327, 39.608266],
+            潍坊: [119.1, 36.62],
+            徐州: [117.2, 34.26],
+         },
+         geoCoordMap3:{
+            衡水: [115.72, 37.72],
+            乌鲁木齐: [87.68, 43.77],
+            开封: [114.35, 34.79],
+            济南: [117, 36.65],
+            南充: [106.110698, 30.837793],
+            天津: [117.2, 39.13],
+            聊城: [115.97, 36.45],
+            芜湖: [118.38, 31.33],
+            唐山: [118.02, 39.63],
+            丽水: [119.92, 28.45],
+            洛阳: [112.44, 34.7],
+            秦皇岛: [119.57, 39.95],
+            株洲: [113.16, 27.83],
+            石家庄: [114.48, 38.03],
+            长沙: [113, 28.21],
+            衢州: [118.88, 28.97],
+            合肥: [117.27, 31.86],
+            武汉: [114.31, 30.52],
+            大庆: [125.03, 46.58]
+          }
       }
     },
     components:{
         EchartChina,
         EchartBtns
     },
+    mounted(){
+       const {geoCoordMap,geoCoordMap1,geoCoordMap2} = this
+       this.initChinaMap(geoCoordMap)
+       this.$bus.$on('clickThreeBtns',(value) => {
+          if(value == 6){
+              this.initChinaMap(geoCoordMap)
+          }else if(value == 7){
+              this.initChinaMap(geoCoordMap1)
+          }else if(value == 8){
+               this.initChinaMap(geoCoordMap2)
+          }else{
+
+          }
+       })
+    },
     methods:{
       clickBtns(e){
-       // console.log(e.target.innerText)
         this.clickTitle = e.target.innerText
+        var value =  e.target.innerText
+        const {geoCoordMap,geoCoordMap1,geoCoordMap2,geoCoordMap3} = this
+        if(value == '全部'){
+           this.initChinaMap(geoCoordMap)
+        }else if(value == '汽车租赁'){
+           this.initChinaMap(geoCoordMap1)
+        }else if(value == '工程机械'){
+           this.initChinaMap(geoCoordMap2)
+        }else if(value == '办公设备'){
+           this.initChinaMap(geoCoordMap3)
+        }else{
+           this.initChinaMap(geoCoordMap2)
+        }
+      },
+      dealWithData(geoCoordMap) {
+        var mapData = geoCoordMap
+        var data = [];
+        for (var key in mapData) {
+          data.push({ name: key, value: mapData[key] });
+        }
+        return data;
+      },
+      initChinaMap(geoCoordMap){
+         var chinaData = this.dealWithData(geoCoordMap)
+         this.$nextTick(() => {
+           this.$refs.myEchart4.initEchartMap()
+           this.$refs.myEchart4.initChina(chinaData)
+         })
       }
     }
 }

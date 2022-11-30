@@ -5,15 +5,13 @@
 import * as echarts from 'echarts';
 
 export default {
-    mounted(){
-      this.initEchart()
-    },
+  
     methods:{
-        initEchart(){
+        initEchart(echartData){
             var chartDom = document.getElementById('myEchartBig');
             var myChartA= echarts.init(chartDom);
             var option;
-            var dataX = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+  
             option = {
                 grid:{//设置图表距离容器位置配置
                   top:'20%',
@@ -87,11 +85,22 @@ export default {
                     },
                     axisLabel: {  
                         textStyle: {
-                         color: '#fff',
+                         color: '#cfd5db',
                          fontSize:9,
-                        }
+                        },
+                        formatter: function (params) {
+                            var date = new Date()
+                            const Y = date.getFullYear()
+                            var temp
+                            if(params == '1月'){
+                              temp = params + "\n" + Y;
+                            }else{
+                              temp = params
+                            }
+                            return temp
+                        },
                     },
-                    data:dataX,
+                    data:echartData.dataX,
                    
                 },
                 yAxis: [
@@ -107,7 +116,7 @@ export default {
                       axisLine: {
                         show: true,
                         lineStyle: {
-                         color: '#FFF',
+                         color: '#cfd5db',
                         },
                       },
                       axisLabel:{
@@ -145,7 +154,7 @@ export default {
                 series: [
                     {
                         name: '总资产',
-                        data: [12, 23, 34, 45, 56, 67, 77,89, 99, 123, 134, 156],
+                        data: echartData.data1,
                         type: 'line',
                         yAxisIndex:'0',
                         symbol: "none",
@@ -160,7 +169,7 @@ export default {
                     },
                     {
                         name: '总资产',
-                        data: [230, 330, 340, 450, 560, 670, 770,800, 900, 800, 600, 789],
+                        data: echartData.data2,
                         type: 'bar',
                         barGap:0,
                         barWidth : 10,//柱图宽度
@@ -177,7 +186,7 @@ export default {
                   
                     {
                         name: '总合同',
-                        data: [24, 57, 78, 35, 56, 78, 89,67, 76, 88, 99, 78],
+                        data: echartData.data3,
                         type: 'line',
                         symbol: "none",
                         tooltip:{
@@ -189,7 +198,7 @@ export default {
                     },
                      {
                         name: '总合同',
-                        data: [115, 210, 124, 118, 155, 247, 280,150, 230, 224, 218, 135],
+                        data:echartData.data4,
                         type: 'bar',
                         barGap:0,
                         barWidth : 10,//柱图宽度
@@ -205,7 +214,7 @@ export default {
                     },
                      {
                         name: '当月到期合同',
-                        data: [100, 200, 124, 168, 135, 147, 180,150, 230, 124, 118, 195],
+                        data: echartData.data5,
                         type: 'line',
                         symbol: "none",
                         tooltip:{
@@ -217,7 +226,7 @@ export default {
                     },
                     {
                         name: '当月到期合同',
-                        data: [100, 200, 124, 168, 135, 147, 180,150, 230, 124, 118, 195],
+                        data:echartData.data6,
                         type: 'bar',
                         barGap:0,
                         barWidth : 10,//柱图宽度
@@ -230,9 +239,7 @@ export default {
                            }
                         }
                         
-                    },
-                    
-                    
+                    }
                 ]
             };
 
