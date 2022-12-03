@@ -49,7 +49,13 @@ import HeaderNavi from '@/components/slotComponents/headerNavi'
 import HeaderNavi1 from '@/components/slotComponents/headerNavi1'
 import HeaderNavi2 from '@/components/slotComponents/headerNavi2'
 import HeaderNavi3 from '@/components/slotComponents/headerNavi3'
+import { number } from 'echarts'
 export default {
+   data(){
+      return {
+      
+      }
+   },
    components:{
        HeaderNavi,
        HeaderNavi1,

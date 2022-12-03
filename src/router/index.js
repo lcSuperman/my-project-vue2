@@ -133,8 +133,14 @@ const router =  new Router({
     },
     {
       path: '/echarts2',
-      name: 'Echarts2',
       component: Echarts2,
+      children:[
+        {
+          path: '',
+          name: 'echarts2',
+          component: () => import('@/views/echarts/twoScreen/main/index')
+        }
+      ]
       
     },
 

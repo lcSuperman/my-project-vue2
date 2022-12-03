@@ -50,15 +50,15 @@
 <script>
 import EchartTitle from '@/components/echartTitle'
 import EchartBtns from '@/components/echartBtns'
-import Lease from '@/components/lease'
-import LeaseTwo from '@/components/leaseTwo'
-import AssetLease from '@/components/assetLease'
-import AssetWarn from '@/components/assetWarn'
-import Overview from '@/components/overview'
-import OvervDue from '@/components/overDue'
-import EchartChina from '@/components/echartChina'
-import AssetStatis from '@/components/assetStatis'
-import BusinessCol from '@/components/businessCol'
+import Lease from '@/components/firstScreen/lease'
+import LeaseTwo from '@/components/firstScreen/leaseTwo'
+import AssetLease from '@/components/firstScreen/assetLease'
+import AssetWarn from '@/components/firstScreen/assetWarn'
+import Overview from '@/components/firstScreen/overview'
+import OvervDue from '@/components/firstScreen/overDue'
+import EchartChina from '@/components/firstScreen/echartChina'
+import AssetStatis from '@/components/firstScreen/assetStatis'
+import BusinessCol from '@/components/firstScreen/businessCol'
 export default {
      data(){
         return {

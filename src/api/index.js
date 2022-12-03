@@ -18,3 +18,14 @@ export function getEchartData(params){
 export function getEchartData1(params){
     return http.get('/echartData',params)
 }
+
+
+export function getStatisData(params){
+    return http.get('/statisData',params)
+}
+export function getStatisData1(params){
+    return http.get('/statisData1',params)
+}
+export function getStatisData2(params){
+    return http.get('/statisData2',params)
+}
