@@ -11,7 +11,7 @@
                     <EchartTitle title="资产出租"/>
                     <AssetLease></AssetLease>
                 </li>
-                <li>
+                <li class="leftBottom">
                     <EchartTitle title="业务回款">
                         <EchartBtns :btns ="backBtns" />
                     </EchartTitle>
@@ -34,14 +34,14 @@
                 </li>
             </ul>
             <ul class="grid-content right">
-                <li>
+                <li class="rightTop">
                     <EchartTitle title="客户总览" />
                     <Overview />  
                 </li>
-                <li class="left-center">
+                <li>
                      <OvervDue />   
                 </li>
-                <li class="pieTwo">
+                <li class="rightBottom">
                     <AssetWarn />
                 </li>
             </ul>
@@ -93,13 +93,13 @@ export default {
     padding:30px 10px 10px 10px;
     .left{
         height: 100%;
-        width: 26%;
+        width: 26.5%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         li{
-            height: 32%;
+            height: 31%;
             width: 97%;
             border: 2px solid @border1;
             border-radius: 20px;
@@ -109,16 +109,20 @@ export default {
         .left-center{
             height: 34%;
         }
+        .leftBottom{
+            height: 32%;
+        }
+
     }
     .center{
         height: 100%;
-        width: 47%;
+        width: 46%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         li{
-            width: 99%;
+            width: 100%;
         }
         .map{
             height: 67%;
@@ -127,7 +131,6 @@ export default {
             height: 32%;
             display: flex;
             justify-content: space-between;
-            
             .pie{
                 height: 100%;
                 width: 49%;
@@ -159,21 +162,24 @@ export default {
     }
     .right{
         height: 100%;
-        width: 26%;
+        width: 26.5%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         li{
-            height: 32%;
+            height: 31%;
             width: 97%;
             border: 2px solid @border1;
             border-radius: 20px;
             box-sizing: border-box;
             padding: 10px 20px;
         }
-        .left-center{
+        .rightTop{
             height: 34%;
+        }
+        .rightBottom{
+           height: 32%; 
         }
     
     }

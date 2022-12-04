@@ -9,10 +9,10 @@
          </li>
       </ul>
     </div>
-    <ul class="btns" @click="clickBtns">
+    <ul class="btns" >
       <li :class="clickTitle == btn.title ? 'active' : ''" v-for="(btn , index) in btns" :key="index">
-        <img :src="btn.image" alt="">
-        <div class="btnTitle">
+        <img :src="btn.image" :alt="btn.title"  @click="clickImg">
+        <div class="btnTitle" @click="clickBtns">
            <span class="title">{{btn.title}}</span>
         </div>
        
@@ -51,6 +51,9 @@ export default {
           {image:computer,title:'户用光伏'},
           {image:boat,title:'船舶'}
          ],
+         newGeoCoordMap:{
+          哈尔滨:{name:'工程机械',coordinate:[126.63, 45.75],assetNum:36,assetValue:10,receivableRent:18,rentRate:99,customerNumber:2438,addCustomwe:1800,stockQuantity:56}
+         },
          geoCoordMap:{
           哈尔滨: [126.63, 45.75],
           北京: [116.46, 39.92],
@@ -164,7 +167,7 @@ export default {
             合肥: [117.27, 31.86],
             武汉: [114.31, 30.52],
             大庆: [125.03, 46.58]
-          }
+          },
       }
     },
     components:{
@@ -188,20 +191,28 @@ export default {
     },
     methods:{
       clickBtns(e){
-        this.clickTitle = e.target.innerText
-        var value =  e.target.innerText
-        const {geoCoordMap,geoCoordMap1,geoCoordMap2,geoCoordMap3} = this
-        if(value == '全部'){
-           this.initChinaMap(geoCoordMap)
-        }else if(value == '汽车租赁'){
-           this.initChinaMap(geoCoordMap1)
-        }else if(value == '工程机械'){
-           this.initChinaMap(geoCoordMap2)
-        }else if(value == '办公设备'){
-           this.initChinaMap(geoCoordMap3)
-        }else{
-           this.initChinaMap(geoCoordMap2)
-        }
+           const {geoCoordMap,geoCoordMap1,geoCoordMap2,geoCoordMap3} = this
+           console.log('2222222',e.target.innerText)
+           this.clickTitle = e.target.innerText
+           var value =  e.target.innerText
+           if(value == '全部'){
+              this.initChinaMap(geoCoordMap)
+            }else if(value == '汽车租赁'){
+              this.initChinaMap(geoCoordMap1)
+            }else if(value == '工程机械'){
+              this.initChinaMap(geoCoordMap2)
+            }else if(value == '办公设备'){
+              this.initChinaMap(geoCoordMap3)
+            }else{
+              this.initChinaMap(geoCoordMap2)
+            }
+      },
+      clickImg(e){
+          var value =  e.target.alt
+           if(value == '工程机械'){
+               this.$router.push({ path: '/echarts2'})
+            }
+
       },
       dealWithData(geoCoordMap) {
         var mapData = geoCoordMap
@@ -227,7 +238,7 @@ export default {
     width: 100%;
     position: relative;
     .sumNumber{
-      height: 13%;
+      height: 15%;
       width: 70%;
       position: absolute;
       top:0;
@@ -243,7 +254,7 @@ export default {
         li{
           width: 30%;
           height: 100%;
-          border-radius:20px ;
+          border-radius:10px ;
           color: #cecece;
           background:rgba(10, 48, 122, .5);
           box-sizing: border-box;
@@ -307,7 +318,7 @@ export default {
       height: 40px;
       position: absolute;
       left:50%;
-      top:15%;
+      top:16%;
       transform: translateX(-50%);
       text-align: center;
       display: flex;

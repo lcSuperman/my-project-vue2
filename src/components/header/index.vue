@@ -4,7 +4,6 @@
           <i @click="collapse" class="iconfont icon-Shankar"></i>
       </div>
       <div class="right">
-        <el-button size="small" @click="enterDPson">可视化子屏</el-button>
         <el-button size="small" @click="enterDP">可视化主屏</el-button>
         <el-button size="small" @click="handleLogout">退出</el-button>
       </div>
@@ -34,9 +33,6 @@ export default {
         },
         enterDP(){
             this.$router.push({ path: '/echarts'})
-        },
-        enterDPson(){
-            this.$router.push({ path: '/echarts2'})
         }
     }
 }

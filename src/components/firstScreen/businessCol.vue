@@ -54,7 +54,7 @@ export default {
 </script>
 <style lang='less' scoped>
 .assetStatis{
-    height: calc(100% - 10px);
+    height: calc(100% - 30px);
     width: 100%;
 }
 </style>

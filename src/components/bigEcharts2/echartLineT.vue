@@ -13,7 +13,7 @@ export default {
             option = {
                 grid:{//设置图表距离容器位置配置
                   top:'10%',
-                  bottom:'26%',
+                  bottom:'25%',
                   left:'10%',
                   right:10
                 },

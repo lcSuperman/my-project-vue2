@@ -15,7 +15,7 @@ export default {
             option = {
                 grid:{//设置图表距离容器位置配置
                   top:'20%',
-                  bottom:'23%',
+                  bottom:'24%',
                   left:'8%',
                 },
                 legend:{//设置图例配置
@@ -253,7 +253,7 @@ export default {
 </script>
 <style lang='less' scoped>
 #myEchartBig{
-    height:calc(100% - 20px);;
+    height:100%;;
     width: 100%;
 }
 </style>
