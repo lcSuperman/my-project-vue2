@@ -8,10 +8,10 @@
             <swiper-slide><Main /></swiper-slide>
             <swiper-slide><Main2 /></swiper-slide>
             <swiper-slide><Main3/></swiper-slide>
-            <div class="swiper-pagination swiper-pagination-b" slot="pagination"></div>
+            <!-- <div class="swiper-pagination swiper-pagination-b" slot="pagination"></div> -->
           </swiper>
         </swiper-slide>
-        <div class="swiper-pagination swiper-pagination-a" slot="pagination"></div>
+        <!-- <div class="swiper-pagination swiper-pagination-a" slot="pagination"></div> -->
       </swiper>
     </div>
 </template>
@@ -25,6 +25,7 @@ export default {
      return {
         swiperOptionA: {
             spaceBetween: 50,
+            touchStartPreventDefault:false,
             // pagination: {
             //  el: '.swiper-pagination-a',
             //  clickable: true
@@ -32,6 +33,7 @@ export default {
         },
         swiperOptionB: {
             direction: 'vertical',
+            touchStartPreventDefault:false,
             spaceBetween: 50,
             // pagination: {
             //  el: '.swiper-pagination-b',

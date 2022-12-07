@@ -1,6 +1,6 @@
 <template>
   <div class="assetStatis">
-      <EchartLineT ref="myEchart3" />
+      <EchartLineT ref="myEchart13" />
   </div>
 </template>
 <script>
@@ -10,16 +10,18 @@ export default {
        return {
           echartData:{
               dataX: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
-              data1: [500, 600, 450, 700, 800, 700, 840,900, 830, 700, 1000, 990],
-              data2: [400, 450, 400, 600, 800, 640, 800,800, 800, 620, 840, 900],
-              data3: [600, 700, 500, 650, 900, 750, 900,900, 1000, 900, 1200, 1000],
-              data4: [100, 150, 50, 100, 0, 60, 40,100, 30, 80, 160, 90]
+              data1: [500, 600, 700, 800, 750, 850, 900,630, 720, 900, 850, 1000],
+              data2: [400, 500, 400, 720, 750, 800, 810,600, 700, 810, 800, 900],
+              data3: [600, 700, 800, 900, 800, 900, 800,700, 800, 900, 900, 900],
+              data4: [100, 100, 300, 80, 0, 50, 90,30, 20, 90, 50, 100]
           },
+          
        }
     },
     mounted(){
        const {echartData} =  this
-       this.$refs.myEchart3.initEchart(echartData)
+       this.$refs.myEchart13.initEchart(echartData)
+       
     },
    
     components:{

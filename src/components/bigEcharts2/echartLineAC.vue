@@ -1,25 +1,27 @@
 <template>
-   <div id="myEchartBig"></div>
+   <div id="myEchartBig21"></div>
 </template>
 <script>
 import * as echarts from 'echarts';
-
+import {GRENN,BLUE,YELLO,RED} from '@/utils/colors'
 export default {
   
     methods:{
         initEchart(echartData){
-            var chartDom = document.getElementById('myEchartBig');
-            var myChartA= echarts.init(chartDom);
+            var chartDom = document.getElementById('myEchartBig21');
+            var myChart21= echarts.init(chartDom);
+          
             var option;
-  
             option = {
                 grid:{//设置图表距离容器位置配置
                   top:'20%',
-                  bottom:'24%',
-                  left:'8%',
+                  bottom:'15%',
+                  left:'3%',
+                  right:'3%'
                 },
                 legend:{//设置图例配置
-                    bottom:0,
+                    top:0,
+                    right:'1%',
                     type: 'scroll',
                     pageIconSize:[10,10],
                     pageIconColor:'#cfd5db',
@@ -32,18 +34,35 @@ export default {
                        fontSize:11
                     },
                     data: [
+                        
                         {
-                        name: '总资产',
-                        icon: 'rect', // 用矩形替换
-                        },
-                        {
-                        name: '总合同',
+                        name: '出租中',
                         icon: 'rect',
+                        itemStyle:{
+                           color:GRENN
+                        }
                         },
           
                         {
-                        name: '当月到期合同',
+                        name: '在库',
                         icon: 'rect',
+                         itemStyle:{
+                           color:BLUE
+                        }
+                        },
+                        {
+                        name: '滞留客户现场',
+                        icon: 'rect',
+                         itemStyle:{
+                           color:YELLO
+                        }
+                        },
+                        {
+                        name: '出租率',
+                        icon: 'rect', // 用矩形替换
+                        itemStyle:{
+                           color:RED
+                        }
                         },
           
                     ],
@@ -67,14 +86,18 @@ export default {
                         }
                     },
                     formatter:function (params) {
+                        var marker = `<span style=\"display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:${GRENN};\"></span>`
+                        var marker1 = `<span style=\"display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:${BLUE};\"></span>`
+                        var marker2 = `<span style=\"display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:${YELLO};\"></span>`
+                        var marker3 = `<span style=\"display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:${RED};\"></span>`
                         return `
                           <div>
-                            <div>${params[0].marker}${params[0].seriesName}：${params[1].value}个/${params[0].value}亿元</div>
-                            <div style="padding:5px 0;">${params[2].marker}${params[2].seriesName}：${params[3].value}个/${params[2].value}亿元</div>
-                            <div>${params[4].marker}${params[4].seriesName}：${params[5].value}个/${params[4].value}亿元</div>
+                              <div style="display:flex;justify-content:space-between;"><span style="padding-right:20px;">${marker}${params[0].seriesName}</span>${params[0].value}</div>
+                              <div style="padding:5px 0;display:flex;justify-content:space-between"><span>${marker1}${params[1].seriesName}</span>${params[1].value}</div>
+                              <div style="display:flex;justify-content:space-between;"><span style="padding-right:20px;">${marker2}${params[2].seriesName}</span>${params[2].value}</div>
+                              <div style="padding:5px 0 0 0;display:flex;justify-content:space-between;"><span style="padding-right:20px;">${marker3}${params[3].seriesName}</span>${params[3].value}%</div>
                           </div>
                         `
-                        
                     }
                 },
                 xAxis: {
@@ -84,6 +107,8 @@ export default {
                         show: false,    // 是否显示坐标轴刻度
                     },
                     axisLabel: {  
+                        interval:0,
+                        rotate:30 , //倾斜的程度
                         textStyle: {
                          color: '#cfd5db',
                          fontSize:9,
@@ -105,7 +130,7 @@ export default {
                 },
                 yAxis: [
                     {
-                      name:'数量：个',
+                      name:'数量',
                       nameTextStyle:{
                          fontSize:10,
                          color:'#cfd5db' 
@@ -133,7 +158,7 @@ export default {
                       },
                     },
                     {
-                      name:'金额：千万元',
+                      name:'出租率（%）',
                       nameTextStyle:{
                          fontSize:10,
                          color:'#cfd5db' 
@@ -162,107 +187,92 @@ export default {
                     },
                 ],
                 series: [
+                   
                     {
-                        name: '总资产',
-                        data: echartData.data1,
-                        type: 'line',
-                        yAxisIndex:'0',
+                        name: '出租中',
+                        data: echartData.data2,
+                        type: 'bar',
+                        barGap:0,
+                        barWidth : 7,//柱图宽度
                         symbol: "none",
-                        lineStyle: {
-                            color: "#5092e2"
+                        itemStyle: {
+                            normal: {
+                            color:GRENN
+                            }
+                        },
+                        tooltip:{
+                           valueFormatter:function(value){
+                            return value 
+                           }
+                        }
+                        
+                    },
+                     {
+                        name: '在库',
+                        data:echartData.data3,
+                        type: 'bar',
+                        barGap:0,
+                        barWidth : 7,//柱图宽度
+                        symbol: "none",
+                        itemStyle: {
+                            normal: {
+                            color:BLUE
+                            }
                         },
                         tooltip:{
                            valueFormatter:function(value){
                             return value + '个'
                            }
                         }
-                    },
-                    {
-                        name: '总资产',
-                        data: echartData.data2,
-                        type: 'bar',
-                        barGap:0,
-                        barWidth : 10,//柱图宽度
-                        stack: 'two',
-                        yAxisIndex:'1',
-                        symbol: "none",
-                        tooltip:{
-                           valueFormatter:function(value){
-                            return value + '千万元'
-                           }
-                        }
-                        
-                    },
-                  
-                    {
-                        name: '总合同',
-                        data: echartData.data3,
-                        type: 'line',
-                        symbol: "none",
-                        tooltip:{
-                           valueFormatter:function(value){
-                            return value + '个'
-                           }
-                        }
                         
                     },
                      {
-                        name: '总合同',
+                        name: '滞留客户现场',
                         data:echartData.data4,
                         type: 'bar',
                         barGap:0,
-                        barWidth : 10,//柱图宽度
-                        stack: 'two',
-                        yAxisIndex:'1',
+                        barWidth : 7,//柱图宽度
                         symbol: "none",
+                        itemStyle: {
+                            normal: {
+                            color:YELLO
+                            }
+                        },
                         tooltip:{
                            valueFormatter:function(value){
-                            return value + '千万元'
+                            return value 
                            }
                         }
                         
                     },
                      {
-                        name: '当月到期合同',
-                        data: echartData.data5,
+                        name: '出租率',
+                        data: echartData.data1,
                         type: 'line',
-                        symbol: "none",
-                        tooltip:{
-                           valueFormatter:function(value){
-                            return value + '个'
-                           }
-                        }
-                        
-                    },
-                    {
-                        name: '当月到期合同',
-                        data:echartData.data6,
-                        type: 'bar',
-                        barGap:0,
-                        barWidth : 10,//柱图宽度
-                        stack: 'two',
                         yAxisIndex:'1',
                         symbol: "none",
+                        lineStyle: {
+                            color: RED
+                        },
                         tooltip:{
                            valueFormatter:function(value){
-                            return value + '千万元'
+                            return value 
                            }
                         }
-                        
-                    }
+                    },
                 ]
             };
 
-            option && myChartA.setOption(option);
+            option && myChart21.setOption(option);
              window.addEventListener("resize", () => {
-                myChartA.resize();
+                myChart21.resize();
             });
         }
     }
 }
 </script>
 <style lang='less' scoped>
-#myEchartBig{
+#myEchartBig21{
     height:100%;;
     width: 100%;
 }

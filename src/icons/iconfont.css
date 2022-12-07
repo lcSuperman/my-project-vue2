@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2997908 */
-  src: url('./iconfont.woff2?t=1639022082925') format('woff2'),
-       url('./iconfont.woff?t=1639022082925') format('woff'),
-       url('./iconfont.ttf?t=1639022082925') format('truetype');
+  src: url('iconfont.woff2?t=1670381461632') format('woff2'),
+       url('iconfont.woff?t=1670381461632') format('woff'),
+       url('iconfont.ttf?t=1670381461632') format('truetype');
 }
 
 .iconfont {
@@ -13,8 +13,92 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-qian:before {
+  content: "\e671";
+}
+
+.icon-fangwuzujin:before {
+  content: "\e63d";
+}
+
+.icon-qian1:before {
+  content: "\e786";
+}
+
+.icon-zichan:before {
+  content: "\e6aa";
+}
+
+.icon-jieqian:before {
+  content: "\e612";
+}
+
+.icon-shouruzhengming:before {
+  content: "\e6d4";
+}
+
+.icon-qianbao:before {
+  content: "\e63b";
+}
+
+.icon-jinqian:before {
+  content: "\e662";
+}
+
+.icon-transaction:before {
+  content: "\ebff";
+}
+
 .icon-gengduo:before {
   content: "\e611";
+}
+
+.icon-cuowu-shi:before {
+  content: "\e75c";
+}
+
+.icon-qunzu:before {
+  content: "\e628";
+}
+
+.icon-guanliyuan1:before {
+  content: "\e65d";
+}
+
+.icon-guanliyuan:before {
+  content: "\e656";
+}
+
+.icon-jiasu:before {
+  content: "\e67c";
+}
+
+.icon-jiaoseguanli:before {
+  content: "\e618";
+}
+
+.icon-yonghuzuguanli:before {
+  content: "\e62d";
+}
+
+.icon-table:before {
+  content: "\e699";
+}
+
+.icon-Table:before {
+  content: "\e658";
+}
+
+.icon-fill_xiaohuomiao:before {
+  content: "\e631";
+}
+
+.icon-fill_xiaohuomiao-copy:before {
+  content: "\ecd9";
+}
+
+.icon-teradata:before {
+  content: "\ecd8";
 }
 
 .icon-Shankar:before {

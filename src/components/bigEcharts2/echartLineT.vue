@@ -1,21 +1,21 @@
 <template>
-   <div id="myEchartBigB"></div>
+   <div id="myEchart13"></div>
 </template>
 <script>
 import * as echarts from 'echarts';
 export default {
     methods:{
         initEchart(echartData){
-            var chartDom = document.getElementById('myEchartBigB');
-            var myChartB = echarts.init(chartDom);
+            var chartDom = document.getElementById('myEchart13');
+            var myChart13 = echarts.init(chartDom);
             var option;
         
             option = {
                 grid:{//设置图表距离容器位置配置
                   top:'10%',
-                  bottom:'25%',
+                  bottom:'26%',
                   left:'10%',
-                  right:10
+                  right:'1%'
                 },
                 legend:{//设置图例配置
                     bottom:0,
@@ -121,7 +121,12 @@ export default {
                            color:'#cfd5db'
                          }
 
-                      }
+                      },
+                      splitLine :{ //网格线
+                       lineStyle:{
+                         type:'dashed' //设置网格线类型 dotted：虚线 solid:实线
+                        },
+                      },
                     }
                 ],
                 series: [
@@ -174,16 +179,16 @@ export default {
                 ]
             };
 
-            option && myChartB.setOption(option);
+            option && myChart13.setOption(option);
             window.addEventListener("resize", () => {
-                myChartB.resize();
+                myChart13.resize();
             });
         }
     }
 }
 </script>
 <style lang='less' scoped>
-#myEchartBigB{
+#myEchart13{
     height:100%;;
     width: 100%;
 }

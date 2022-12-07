@@ -4,17 +4,15 @@
    <div class="echarts">
         <ul class="grid-content left">
             <li class="left-center"> 
-                <EchartTitle title="资产出租">
-                </EchartTitle>
-                
+                <EchartTitle title="资产出租" />
+                <AssetLease/>
             </li>
             <li >
                 <EchartTitle title="客户总览"/>
-                
+                <CustomerView/>
             </li>
             <li class="leftBottom">
-                <EchartTitle title="业务回款趋势">
-                </EchartTitle>
+                <EchartTitle title="业务回款趋势" />
                 <BusinessCol/>
             </li>
         </ul>
@@ -25,18 +23,20 @@
             <li class="pies">
                 <div class="pie">
                     <EchartTitle title="监控覆盖"/>
-                    
+                    <Monitor/>
                 </div>
                 <div class="pie">
                     <EchartTitle title="预警"/>
-                   
+                    <Warn/>
                 </div>
             </li>
         </ul>
         <ul class="grid-content right">
             <li class="rightTop">
-                <EchartTitle title="资产状态统计" />
-             
+                <EchartTitle title="资产状态统计">
+                  <EchartBtns1 />
+                </EchartTitle>
+                <AssetStatus/>
             </li>
             <li >
                 <LeaseStatis />   
@@ -51,19 +51,32 @@
 
 <script>
 import EchartHead from '@/components/echartHead'
+import EchartBtns1 from '@/components/echartBtns1'
 import EchartTitle from '@/components/echartTitle'
 import Lease from '@/components/twoScreen/one/lease'
 import LeaseStatis from '@/components/twoScreen/one/leaseStatis'
 import EchartChina from '@/components/twoScreen/one/echartChina'
 import BusinessCol from '@/components/twoScreen/one/businessCol'
+import AssetLease from '@/components/twoScreen/one/assetLease'
+import CustomerView from '@/components/twoScreen/one/customerView'
+import Monitor from '@/components/twoScreen/one/monitor'
+import Warn from '@/components/twoScreen/one/warn'
+import AssetStatus from '@/components/twoScreen/one/assetStatus'
   export default {
     components:{
         EchartHead,
+        EchartBtns1,
         EchartTitle,
+        BusinessCol,
         Lease,
         LeaseStatis,
         EchartChina,
-        BusinessCol
+        AssetLease,
+        CustomerView,
+        Monitor,
+        Warn,
+        AssetStatus
+      
     }
    
   }

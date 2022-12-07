@@ -1,5 +1,5 @@
 <template>
-   <div id="china_map"></div>
+   <div id="china_map1"></div>
 </template>
 
 <script>
@@ -110,19 +110,19 @@ export default {
 
     //初始化中国地图
     initEchartMap() {
-      let mapDiv = document.getElementById('china_map');
-      let myChart = echarts.init(mapDiv);
-      myChart.setOption(this.options);
+      let mapDiv1 = document.getElementById('china_map1');
+      let myChart1 = echarts.init(mapDiv1);
+      myChart1.setOption(this.options);
       //随着屏幕大小调节图表
       window.addEventListener("resize", () => {
-          myChart.resize();
+          myChart1.resize();
       });
 
     },
 
     initChina(echartData){
-      let mapDiv = document.getElementById('china_map');
-      let myChart = echarts.init(mapDiv);
+      let mapDiv1 = document.getElementById('china_map1');
+      let myChart1 = echarts.init(mapDiv1);
       var dataValue = echartData;
       var option = {
         series: [
@@ -176,7 +176,6 @@ export default {
             coordinateSystem: "geo",
             data: dataValue,
             symbol: function(value,param){
-               console.log(value,param)
                if(param.data.type == 0){
                   return "image://" + chache;
                }else{
@@ -212,10 +211,10 @@ export default {
          
         ]
       };
-      myChart.setOption(option);
+      myChart1.setOption(option);
       //随着屏幕大小调节图表
       window.addEventListener("resize", () => {
-          myChart.resize();
+          myChart1.resize();
       });
     }
 
@@ -226,7 +225,7 @@ export default {
 </script>
 
 <style scoped>
-   #china_map{
+   #china_map1{
         height: 100%;
     }
 </style>

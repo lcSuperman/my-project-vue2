@@ -22,7 +22,6 @@ export default {
 
   methods:{
       jieshou(value){
-       //  console.log('22222',value)
        this.htmlContent = value
       }
   }

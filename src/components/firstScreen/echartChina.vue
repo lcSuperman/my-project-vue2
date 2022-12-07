@@ -192,7 +192,6 @@ export default {
     methods:{
       clickBtns(e){
            const {geoCoordMap,geoCoordMap1,geoCoordMap2,geoCoordMap3} = this
-           console.log('2222222',e.target.innerText)
            this.clickTitle = e.target.innerText
            var value =  e.target.innerText
            if(value == '全部'){

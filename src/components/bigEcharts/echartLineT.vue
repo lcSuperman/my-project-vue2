@@ -121,7 +121,12 @@ export default {
                            color:'#cfd5db'
                          }
 
-                      }
+                      },
+                      splitLine :{ //网格线
+                       lineStyle:{
+                         type:'dashed' //设置网格线类型 dotted：虚线 solid:实线
+                        },
+                      },
                     }
                 ],
                 series: [

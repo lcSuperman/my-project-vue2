@@ -6,16 +6,46 @@
    <div class="echarts">
      <div class="topContainer">
         <ul class="topLeft">
-           <li></li>
-           <li></li>
-           <li></li>
+           <li v-for="(item , index) in data" :key="index">
+               <div class="dataTitle">
+                    <div class="titles">
+                        <span>{{item.title}}</span>
+                        <span><i class="el-icon-warning-outline"></i></span>
+                    </div>
+                    <span class="count">{{item.count}}</span>
+               </div>
+               <div class="dataNumber">
+                  <div class="percen">
+                    <span>{{item.percenName}}：</span>
+                    <span>{{item.percent}}%</span>
+                  </div>
+                  <div class="linkRate">
+                    <span>月环比：</span>
+                    <i class="el-icon-caret-bottom" v-if="item.isTop"></i>
+                    <i class="el-icon-caret-top" v-else></i>
+                    <span :style="{color: !item.isTop ? '#cc0000' : '#7ecf51'}">{{item.rate}}%</span>
+                  </div>
+               </div>
+           </li>
         </ul>
-        <div class="topRight"></div>
+        <div class="topRight">
+             <EchartTitle title="资产数量" />
+             <AssetCount/>
+        </div>
      </div>
      <ul class="bottomContainer">
-        <li class="bottomLeft"></li>
-        <li class="bottomMiddle"></li>
-        <li class="bottomRight"></li>
+        <li class="bottomLeft">
+            <EchartTitle title="高机高度出租率" />
+            <GdLeaseRate/>
+        </li>
+        <li class="bottomMiddle">
+            <EchartTitle title="高机类型出租率" />
+            <LeaseRate/>
+        </li>
+        <li class="bottomRight">
+            <EchartTitle title="高机品牌出租率" />
+            <LeaseRateP/>
+        </li>
      </ul>
    </div>
   </div>
@@ -23,10 +53,26 @@
 
 <script>
 import EchartTitle from '@/components/echartTitle'
-
+import AssetCount from '@/components/twoScreen/two/assetCount'
+import LeaseRate from '@/components/twoScreen/two/leaseRate'
+import LeaseRateP from '@/components/twoScreen/two/leaseRateP'
+import GdLeaseRate from '@/components/twoScreen/two/gdLeaseRate'
   export default {
+    data(){
+        return {
+           data:[
+            {title:'总出租数量',count:7289,percenName:'出租率',percent:'81.3',rate:'3.3',isTop:true},
+            {title:'总在库数量',count:361,percenName:'在库率',percent:'11.1',rate:'2.3',isTop:false},
+            {title:'总滞留客户现场',count:142,percenName:'出租率',percent:'7.6',rate:'4.9',isTop:false}
+           ]
+        }
+    },
     components:{
         EchartTitle,
+        AssetCount,
+        LeaseRate,
+        LeaseRateP,
+        GdLeaseRate
     }
    
   }
@@ -59,7 +105,7 @@ import EchartTitle from '@/components/echartTitle'
         flex-direction: column;
         justify-content: space-between;
         box-sizing: border-box;
-        padding:20px 10px 10px 10px;
+        padding:20px 20px 10px 20px;
         color: #fff;
         .topContainer{
             height: 53%;
@@ -68,7 +114,7 @@ import EchartTitle from '@/components/echartTitle'
             justify-content: space-between;
             .topLeft{
                 height: 100%;
-                width: 13%; 
+                width: 15%; 
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -80,11 +126,42 @@ import EchartTitle from '@/components/echartTitle'
                     border-radius: 20px;
                     box-sizing: border-box;
                     padding: 10px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    .dataTitle{
+                       display: flex;
+                       flex-direction: column;
+                       justify-content: space-between;
+                       .titles{
+                          display: flex;
+                          justify-content: space-between;
+                          color: #cecece;
+                       }
+                       .count{
+                          font-size: 30px;
+                          font-weight: bold;
+                          color: #fff;
+                       }
+                    }
+                    .dataNumber{
+                        display: flex;
+                        justify-content: space-between;
+                        color: #cecece;
+                        .linkRate{
+                            .el-icon-caret-top{
+                                color:#cc0000;
+                            }
+                            .el-icon-caret-bottom{
+                                color:#7ecf51;
+                            }
+                        }
+                    }
                 }
             }
             .topRight{
                 height: 100%;
-                width: 86%; 
+                width: 84%; 
                 border: 2px solid @border1;
                 border-radius: 20px;
                 box-sizing: border-box;

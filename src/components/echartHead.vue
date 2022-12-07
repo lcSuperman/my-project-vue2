@@ -11,14 +11,16 @@
                 <div class="container2"></div>
             </div>
         </div>
+        <EchartBtns2 v-if="isShowBtn"/>
     </div>
 </template>
 <script>
-
+import EchartBtns2 from '@/components/echartBtns2'
 export default {
     data(){
         return {
-          timeDate:null
+          timeDate:null,
+          isShowBtn:false,
         }
     },
     props:{
@@ -27,6 +29,16 @@ export default {
         required:true,
       }
 
+    },
+    components:{
+      EchartBtns2
+    },
+    created(){
+        if(this.$route.name == 'echarts2'){
+            this.isShowBtn = true
+        }else{
+            this.isShowBtn = false
+        }
     },
     mounted(){
       this.getDate()
@@ -59,7 +71,8 @@ export default {
 .topTitleContainer{
     width:100%;
     height: 80px;
-        .topTitle{
+    position: relative;
+    .topTitle{
         width:calc(100% - 40px);
         height: 60px;
         border-top: 40px solid #051d63;
