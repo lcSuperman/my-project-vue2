@@ -8,45 +8,6 @@ import 'echarts-wordcloud';
 export default {
     data(){
         return{
-           options:{
-                series: [{
-                type: 'wordCloud',
-                shape: 'circle',
-                keepAspect: false,
-                maskImage: '',
-                left: 'center',
-                top: '-15px',
-                width: '98%',
-                height: '100%',
-                right: null,
-                bottom: null,
-                sizeRange: [18, 60],
-                rotationRange: [-90, 90],
-                rotationStep: 45,
-                gridSize: 8,
-                drawOutOfBound: false,
-                layoutAnimation: true,
-                textStyle: {
-                    fontFamily: 'sans-serif',
-                    fontWeight: 'bold',
-                    color: function () {
-                        return 'rgb(' + [
-                            Math.round(Math.random() * 160),
-                            Math.round(Math.random() * 160),
-                            Math.round(Math.random() * 160)
-                        ].join(',') + ')';
-                    }
-                },
-                emphasis: {
-                    // focus: 'self',
-                    textStyle: {
-                        textShadowBlur: 5,
-                        textShadowColor: '#333'
-                    }
-                },
-                data:[]
-            }]
-           },
            value: [
                 {name: 'Far',value: 10},
                 {name: "汽车",value: 2},
@@ -105,33 +66,119 @@ export default {
         }
 
     },
-    created(){
-       this.setEchartOption()
-    },
     mounted(){
-        this.$nextTick(()=>{
+        
            this. initEchart()
-       })
+   
     },
     methods:{
         
         initEchart(){
            const echartDom = document.getElementById('myEchart5')
            const myChart = echarts.init(echartDom)
-           myChart.setOption(this.options)
+           var options
+           var maskImage = new Image();
+            maskImage.src = this.image
+         
+           options = {
+                series: [{
+                type: 'wordCloud',
+                shape: 'circle',
+                keepAspect: false,
+                maskImage: maskImage,
+                left: 'center',
+                top: '-15px',
+                width: '98%',
+                height: '100%',
+                right: null,
+                bottom: null,
+                sizeRange: [18, 60],
+                rotationRange: [-90, 90],
+                rotationStep: 45,
+                gridSize: 8,
+                drawOutOfBound: false,
+                layoutAnimation: true,
+                textStyle: {
+                    fontFamily: 'sans-serif',
+                    fontWeight: 'bold',
+                    color: function () {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 160),
+                            Math.round(Math.random() * 160),
+                            Math.round(Math.random() * 160)
+                        ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    // focus: 'self',
+                    textStyle: {
+                        textShadowBlur: 5,
+                        textShadowColor: '#333'
+                    }
+                },
+                data:[
+                    {name: 'Far',value: 10},
+                    {name: "汽车",value: 2},
+                    {name: "视频",value: 3},
+                    {name: "电视",value: 1},
+                    {name: "Lover",value: 1},
+                    {name: "BGY",value: 2},
+                    {name: "IJG",value: 3},
+                    {name: "电R",value: 1},
+                    {name: "Lover",value: 1},
+                    {name: "boy",value: 2},
+                    {name: "电视",value: 1},
+                    {name: "Lover",value: 1},
+                    {name: "watch",value: 1},
+                    {name: "grils",value: 2},
+                    {name: "电视",value: 1},
+                    {name: "Lover",value: 1},
+                    {name: "H",value: 5},
+                    {name: "音乐",value: 1},
+                    {name: "直播",value: 3},
+                    {name: "ABC",value: 2},
+                    {name: "路飞",value: 5},
+                    {name: "海",value: 4},
+                    {name: "女帝",value: 2},
+                    {name: "索隆",value: 3},
+                    {name: "鸣人",value: 2},
+                    {name: "佐",value: 5},
+                    {name: "直播",value: 3},
+                    {name: "boy",value: 2},
+                    {name: "电视",value: 1},
+                    {name: "Lover",value: 1},
+                    {name: "动",value: 5},
+                    {name: "音乐",value: 1},
+                    {name: "直播",value: 3},
+                    {name: "ABC",value: 2},
+                    {name: "漫",value: 4},
+                    {name: "单身",value: 5},
+                    {name: "贼",value: 4},
+                    {name: "学生",value: 2},
+                    {name: "索隆",value: 3},
+                    {name: "鸣人",value: 2},
+                    {name: "助",value: 5},
+                    {name: "直播",value: 3},
+                    {name: "广台",value: 4},
+                    {name: "曲艺",value: 3},
+                    {name: "HR",value: 5},
+                    {name: "音乐",value: 1},
+                    {name: "直播",value: 3},
+                    {name: "广电台",value: 1},
+                    {name: "路",value: 3},
+                    {name: "海王",value: 4},
+                    {name: "女帝",value: 2},
+                    {name: "索隆",value: 3},
+                ], 
+            }]
+           }
+
+           myChart.setOption(options)
 
            //随着屏幕大小调节图表
             window.addEventListener("resize", () => {
                 myChart.resize();
             });
-        },
-        
-         //修改echart配制
-        setEchartOption(){
-             var maskImage = new Image();
-             maskImage.src = this.image
-             this.options.series[0].maskImage = maskImage;
-            this.options.series[0].data = this.value
         }
     }
 }

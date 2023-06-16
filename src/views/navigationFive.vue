@@ -33,11 +33,18 @@ export default {
     justify-content: space-between;
     .tinymceLeft{
         width: 70%;
+        height: 100%;
+        /deep/.tinymce-editor{
+          height: 100%;
+          .tox{
+            height: 100% !important;
+          }
+        }
+        
     }
     .tinymceRight{
       border: 1px solid rgb(201, 201, 201);
       width: 29%;
-      height: 550px;
       max-height: 100%;
     }
 }

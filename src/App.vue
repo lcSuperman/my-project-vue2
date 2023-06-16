@@ -24,21 +24,7 @@ export default {
   height: 100%;
   width: 100%;
 }
-.el-select-dropdown{
-  border: none;
-}
-.el-scrollbar__wrap{
-    background:rgba(3, 25, 62, .9);
-}
-.el-select-dropdown__item{
-  color: #fff; 
-}
-.el-select-dropdown__item.hover{
-  background:#2ba7b1;
-}
-.el-select-dropdown__item.selected{
-  color:#b08d54 ;
-}
+
 ::-webkit-scrollbar {
   height: 5px;
   width: 10px;

@@ -28,7 +28,7 @@ export default {
           map: "china",
           roam: false,// 一定要关闭拖拽
           zoom: 1.6,
-          center: [102, 37], // 调整地图位置
+          center: [102, 36], // 调整地图位置
           aspectScale: 0.80, //长宽比
           label: {
             normal: {
@@ -66,7 +66,7 @@ export default {
             map: "china",
             roam: false,
             zoom: 1.6,
-            center: [102, 37],
+            center: [102, 36],
             data:[],
             // geoIndex: 1,
             aspectScale: 0.80, //长宽比
@@ -131,7 +131,7 @@ export default {
             map: "china",
             roam: false,
             zoom: 1.6,
-            center: [102, 37],
+            center: [102, 36],
             aspectScale: 0.80, //长宽比
             showLegendSymbol: false, // 存在legend时显示
             label: {

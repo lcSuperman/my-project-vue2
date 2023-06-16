@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 2997908 */
-  src: url('iconfont.woff2?t=1670381461632') format('woff2'),
-       url('iconfont.woff?t=1670381461632') format('woff'),
-       url('iconfont.ttf?t=1670381461632') format('truetype');
+  font-family: "iconfont"; /* Project id 4122349 */
+  src: url('iconfont.woff2?t=1686811880740') format('woff2'),
+       url('iconfont.woff?t=1686811880740') format('woff'),
+       url('iconfont.ttf?t=1686811880740') format('truetype');
 }
 
 .iconfont {
@@ -13,135 +13,159 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-qian:before {
-  content: "\e671";
+.icon-xuanze:before {
+  content: "\e67b";
 }
 
-.icon-fangwuzujin:before {
-  content: "\e63d";
-}
-
-.icon-qian1:before {
-  content: "\e786";
-}
-
-.icon-zichan:before {
-  content: "\e6aa";
-}
-
-.icon-jieqian:before {
-  content: "\e612";
-}
-
-.icon-shouruzhengming:before {
-  content: "\e6d4";
-}
-
-.icon-qianbao:before {
-  content: "\e63b";
-}
-
-.icon-jinqian:before {
-  content: "\e662";
-}
-
-.icon-transaction:before {
-  content: "\ebff";
-}
-
-.icon-gengduo:before {
-  content: "\e611";
-}
-
-.icon-cuowu-shi:before {
-  content: "\e75c";
-}
-
-.icon-qunzu:before {
-  content: "\e628";
-}
-
-.icon-guanliyuan1:before {
-  content: "\e65d";
-}
-
-.icon-guanliyuan:before {
+.icon-tuozhuai:before {
   content: "\e656";
 }
 
-.icon-jiasu:before {
-  content: "\e67c";
+.icon-ic_qingkong:before {
+  content: "\e609";
 }
 
-.icon-jiaoseguanli:before {
+.icon-a-liuchengfenlei2:before {
+  content: "\e627";
+}
+
+.icon-a-zuzhiguanli2:before {
+  content: "\e628";
+}
+
+.icon-a-wodexiaoxi2:before {
+  content: "\e629";
+}
+
+.icon-a-xinxifabu2:before {
+  content: "\e62a";
+}
+
+.icon-a-xinchoutixi2:before {
+  content: "\e62b";
+}
+
+.icon-caozuoxitong:before {
+  content: "\e617";
+}
+
+.icon-chanpinguige:before {
   content: "\e618";
 }
 
-.icon-yonghuzuguanli:before {
-  content: "\e62d";
+.icon-peizhitiku:before {
+  content: "\e603";
 }
 
-.icon-table:before {
-  content: "\e699";
+.icon-rili:before {
+  content: "\e604";
 }
 
-.icon-Table:before {
-  content: "\e658";
+.icon-zhanghao:before {
+  content: "\e669";
 }
 
-.icon-fill_xiaohuomiao:before {
-  content: "\e631";
+.icon-shuaxin:before {
+  content: "\e66a";
 }
 
-.icon-fill_xiaohuomiao-copy:before {
-  content: "\ecd9";
+.icon-shangchuan:before {
+  content: "\e671";
 }
 
-.icon-teradata:before {
-  content: "\ecd8";
+.icon-sucai:before {
+  content: "\e602";
+}
+
+.icon-yunduanxiazai:before {
+  content: "\ec1d";
+}
+
+.icon-xiangmu:before {
+  content: "\e64c";
+}
+
+.icon-shujuku:before {
+  content: "\e625";
+}
+
+.icon-warning:before {
+  content: "\e605";
+}
+
+.icon-baocun:before {
+  content: "\e936";
+}
+
+.icon-tianxie:before {
+  content: "\ec88";
+}
+
+.icon-caidan:before {
+  content: "\e652";
+}
+
+.icon-gouwuche:before {
+  content: "\e73d";
+}
+
+.icon-shanchu:before {
+  content: "\e68e";
+}
+
+.icon-shezhi:before {
+  content: "\e68f";
+}
+
+.icon-icon-cross-empty:before {
+  content: "\e65c";
+}
+
+.icon-fsux_tubiao_fenbuquxiantu:before {
+  content: "\e601";
+}
+
+.icon-xitong:before {
+  content: "\e835";
+}
+
+.icon-gl-arrowRd:before {
+  content: "\eb6a";
+}
+
+.icon-xitong1:before {
+  content: "\e62c";
+}
+
+.icon-tianjia:before {
+  content: "\e613";
+}
+
+.icon-byangtiaoquxian:before {
+  content: "\eddb";
+}
+
+.icon-a-18:before {
+  content: "\e607";
+}
+
+.icon-weixuanzhongyuanquan:before {
+  content: "\e600";
+}
+
+.icon-line:before {
+  content: "\e653";
+}
+
+.icon-gl-square:before {
+  content: "\ea98";
+}
+
+.icon-tubiao:before {
+  content: "\e636";
 }
 
 .icon-Shankar:before {
   content: "\e6a9";
-}
-
-.icon-upload1:before {
-  content: "\e6df";
-}
-
-.icon-tubiao:before {
-  content: "\e60c";
-}
-
-.icon-workspace2:before {
-  content: "\e715";
-}
-
-.icon-table-fill:before {
-  content: "\e77b";
-}
-
-.icon-ic_menu_addfoder:before {
-  content: "\e632";
-}
-
-.icon-editor:before {
-  content: "\e601";
-}
-
-.icon-Directory:before {
-  content: "\e602";
-}
-
-.icon-table-line:before {
-  content: "\ea9e";
-}
-
-.icon-taskbar:before {
-  content: "\e608";
-}
-
-.icon-shezhi:before {
-  content: "\e74c";
 }
 

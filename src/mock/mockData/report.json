@@ -1,0 +1,195 @@
+{
+    "echartDataOne": [
+        { "value": 23,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "已注册" },
+        { "value": 20,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "潜在" },
+        { "value": 30,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "整改中" },
+        { "value": 56,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "暂停合作" },
+        { "value": 6,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "黑名单" },
+        { "value": 10,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "合格" },
+        { "value": 45,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "资质到期" },
+        { "value": 8,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "冻结" },
+        { "value": 50,"zhanlue":4,"youxuan":23,"weichi":20,"taotai":3,"name": "已退出" }
+    ],
+    "echartDataTwo": [
+        { "value": 100,"zhanlue":23,"youxuan":20,"weichi":30,"taotai":56,"name": "推荐注册供应商","total":240 },
+        { "value": 140,"zhanlue":26,"youxuan":10,"weichi":30,"taotai":56,"name": "邀请注册供应商","total":240 }
+    ],
+    "scheduleThree":{
+
+    },
+    "echartDataFour":{
+        "scoreList":[
+            {"title":"A","count":40,"per":30},
+            {"title":"B","count":30,"per":20},
+            {"title":"C","count":50,"per":40},
+            {"title":"D","count":30,"per":10}
+        ],
+        "datalist":[
+            {
+                "name":"1月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"},
+                    {"value":0,"a":0,"b":0,"c":0,"d":0,"name":"项目五"},
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目六"},
+                    {"value":7,"a":2,"b":3,"c":4,"d":1,"name":"项目七"},
+                    {"value":9,"a":2,"b":3,"c":4,"d":1,"name":"项目八"},
+                    {"value":11,"a":2,"b":3,"c":4,"d":1,"name":"项目九"},
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目十"}
+                ]
+            },
+            {
+                "name":"2月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目三"}
+                ]
+            },
+            {
+                "name":"3月",
+                "data":[
+                    {"value":0,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":0,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"4月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"5月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"6月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"7月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"8月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"9月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"10月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"11月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            },
+            {
+                "name":"12月",
+                "data":[
+                    {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"项目一"},
+                    {"value":8,"a":2,"b":3,"c":4,"d":1,"name":"项目二"},
+                    {"value":6,"a":2,"b":3,"c":4,"d":1,"name":"项目三"},
+                    {"value":4,"a":2,"b":3,"c":4,"d":1,"name":"项目四"}
+                ]
+            }
+        ]
+    },
+    "echartDataFive":{
+        "scoreList":[
+            {"title":"A","count":40,"per":30},
+            {"title":"B","count":30,"per":20},
+            {"title":"C","count":50,"per":40},
+            {"title":"D","count":30,"per":10}
+        ],
+        "echartData":[
+            {"value":20,"a":5,"b":6,"c":4,"d":5,"name":"品类一"},
+            {"value":10,"a":2,"b":3,"c":4,"d":1,"name":"品类二"},
+            {"value":40,"a":20,"b":10,"c":5,"d":5,"name":"品类三"},
+            {"value":55,"a":15,"b":10,"c":10,"d":20,"name":"品类四"},
+            {"value":22,"a":5,"b":10,"c":4,"d":3,"name":"品类五"},
+            {"value":35,"a":15,"b":10,"c":10,"d":20,"name":"品类六"},
+            {"value":12,"a":5,"b":10,"c":4,"d":3,"name":"品类七"}
+        ]
+    },
+    "scheduleSix":{
+        
+    },
+    "tableSeven":{
+        "pageNo": 1,
+        "pageSize": 10,
+        "pageTotal": 7,
+        "data": [
+          {"name":"供应商1水电费水电费撒旦法打大幅度发","supplier":"项目1水电费水电费水电费水电费广东省发斯蒂芬撒的发生","code":"12345678","category":"三级品类","count":"77","status":"已延期","action":"待整改"},
+          {"name":"供应商1","supplier":"项目1","code":"12345678","category":"三级品类","count":"77","status":"未延期","action":"整改中"},
+          {"name":"供应商1","supplier":"项目1","code":"12345678","category":"三级品类","count":"77","status":"已延期","action":"待整改"},
+          {"name":"供应商1","supplier":"项目1","code":"12345678","category":"三级品类","count":"77","status":"已延期","action":"已整改"},
+          {"name":"供应大范甘迪示范岗商1","supplier":"项目1森岛帆高森岛帆高","code":"12345678","category":"三级品森岛帆高类","count":"77","status":"未延期","action":"待整改"},
+          {"name":"供应商1","supplier":"项目1","code":"12345678","category":"三级品类","count":"77","status":"已延期","action":"待整改"},
+          {"name":"供应商1","supplier":"项目1","code":"12345678","category":"三级品类","count":"77","status":"未延期","action":"已整改"}
+        ]
+    },
+    "tableEight":{
+        "pageNo": 1,
+        "pageSize": 10,
+        "pageTotal":8,
+        "data": [
+            {"supplier":"项目哈跨境电商发货看哈舒服","category":"三级品类","count":"77","status":"已延期","action":"待整改"},
+            {"supplier":"项目1","category":"三级品类","count":"77","status":"未延期","action":"整改中"},
+            {"supplier":"项目1","category":"三级品类","count":"77","status":"已延期","action":"待整改"},
+            {"supplier":"项目收到货发离开家","category":"三级品类","count":"77","status":"已延期","action":"已整改"},
+            {"supplier":"项目1","category":"三级品类","count":"77","status":"未延期","action":"待整改"},
+            {"supplier":"项目1","category":"三级品类","count":"77","status":"已延期","action":"整改中"},
+            {"supplier":"项目1","category":"三级品类","count":"77","status":"未延期","action":"已整改"},
+            {"supplier":"项目1","category":"三级品类","count":"77","status":"未延期","action":"待整改"},
+            {"supplier":"项目1","category":"三级品类","count":"77","status":"已延期","action":"整改中"},
+            {"supplier":"项目1","category":"三级品类","count":"77","status":"未延期","action":"已整改"}
+        ]
+    }
+
+}

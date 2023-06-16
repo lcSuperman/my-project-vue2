@@ -32,8 +32,10 @@
                     </el-dropdown-menu>
                   </el-dropdown>
               </div>
-            
-              <router-view class="routerView"></router-view>
+              <transition>
+                  <router-view class="routerView"></router-view>
+              </transition>
+              
           </div>
         </el-main>
       </el-container>
@@ -177,6 +179,30 @@ export default {
               font-size: 12px;
             }
 
+        }
+      }
+      .fade-enter-active{
+        animation: ami 1s;
+      }
+      @keyframes ami {
+        0%{
+          transform: translateX(100%);
+        }
+        100%{
+          transform: translateX(0);
+        }
+      }
+
+      .fade-leave-active{
+        animation: amiro 1s;
+      }
+
+      @keyframes amiro {
+        0%{
+          transform: translateX(0) ;
+        }
+        100%{
+          transform: translateX(-100%);
         }
       }
       .routerView{

@@ -24,6 +24,7 @@ export default {
                     trigger: 'axis',
                     backgroundColor:'rgba(0,0,0,0.6)',
                     borderWidth:0,
+                    confine: true,
                     textStyle:{
                       color:'#fff',
                       fontSize:10

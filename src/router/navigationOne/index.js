@@ -3,7 +3,7 @@ export default  [
       path: 'one',
       name:'one',
       meta:{
-        title:'子导航一',
+        title:'凤宁苑一号楼',
         number:1
       },
       component:() => import('@/views/navigationOne/one/index'),
@@ -12,18 +12,18 @@ export default  [
       path: 'two',
       name:'two',
       meta:{
-        title:'子导航二',
+        title:'凤宁苑二号楼',
         number:2
       },
-      component:() => import('@/views/navigationOne/two'),
+      component:() => import('@/views/navigationOne/two/index'),
     },
     {
       path: 'three',
       name:'three',
       meta:{
-        title:'子导航三',
+        title:'凤宁苑三号楼',
         number:3
       },
-      component:() => import('@/views/navigationOne/three'),
+      component:() => import('@/views/navigationOne/three/index'),
     },
   ]

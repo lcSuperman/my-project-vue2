@@ -95,8 +95,9 @@ export default {
      display: flex;
      justify-content: space-between;
      .wordCloud{
-        height: 400px;
+        height: 600px;
         width: 66%;
+        padding: 0 20px;
         box-shadow:0px 2px 8px #888888;
      }
      .Gauge{
