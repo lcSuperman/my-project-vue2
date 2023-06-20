@@ -1,5 +1,6 @@
 <template>
     <div id="flowChart">
+      <!-- 头部工具栏 -->
       <div class="operating">
         <div class="btn-group">
           <div class="btn" @click="addCircle" title="起始节点">
@@ -46,6 +47,7 @@
           <el-input size="mini" v-model="workflowName" placeholder="请输入流图名称..."></el-input>
         </div>
       </div>
+      <!-- 右侧节点属性设置 -->
       <div class="info">
         <div class="title">
           <span>{{infoTitle}}属性</span>
@@ -54,7 +56,6 @@
           <el-checkbox v-if="isBlank === true" v-model="checked">网格对齐</el-checkbox>
           <el-form v-else label-position="left" label-width="60px">
             <el-form-item v-if="isNode !== true" label="动作">
-              <!-- <el-input size="mini" v-model="action"></el-input> -->
               <el-select v-model="action" size="mini" filterable placeholder="绑定动作" value="">
                 <el-option
                   v-for="item in actionList"
@@ -67,38 +68,7 @@
             <el-form-item v-if="isNode === true" label="名称">
               <el-input size="mini" v-model="name"></el-input>
             </el-form-item>
-            <!-- <el-form-item v-if="isNode === true" label="功能">
-              <el-select v-model="func" size="mini" filterable placeholder="绑定功能" value="">
-                <el-option
-                  v-for="item in funcList"
-                  :key="item.id"
-                  :label="item.label"
-                  :value="item.id">
-                </el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item v-if="isNode === true" label="账号">
-              <el-select v-model="account" size="mini" filterable multiple
-                         collapse-tags placeholder="绑定账号" value="">
-                <el-option
-                  v-for="item in accountList"
-                  :key="item.id"
-                  :label="item.label"
-                  :value="item.id">
-                </el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item v-if="isNode === true" label="流图">
-              <el-select v-model="workflow" size="mini" filterable clearable placeholder="绑定流图" value="">
-                <el-option
-                  v-for="item in workflowList"
-                  :key="item.id"
-                  :label="item.label"
-                  :value="item.id">
-                </el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item v-if="isNode === true" label="类型">
+            <!-- <el-form-item v-if="isNode === true" label="类型">
               <el-select v-model="nodeType" size="mini" filterable placeholder="请选择类型" value="">
                 <el-option
                   v-for="item in nodeTypeList"
@@ -129,15 +99,6 @@
         actionList: {
           type: Array, default: []
         },
-        funcList: {
-          type: Array, default: []
-        },
-        accountList: {
-          type: Array, default: []
-        },
-        workflowList: {
-          type: Array, default: []
-        },
         nodeTypeList: {
           type: Array, default: () => {
             return [
@@ -152,9 +113,6 @@
         return {
           action: '',
           name: '',
-          func: '',
-          account: '',
-          workflow: '',
           nodeType: 0,
           color: '',
           net: '',
@@ -170,6 +128,7 @@
         }
       },
       methods: {
+        //初始化
         initG6() {
           let self = this;
           self.Util = G6.Util;
@@ -189,12 +148,6 @@
             /*width: 500,    // 画布宽*/
             height: 800    // 画布高
           });
-          /*self.net.tooltip({
-            title: '信息', // @type {String} 标题
-            split: ':',  // @type {String} 分割符号
-            dx: 0,       // @type {Number} 水平偏移
-            dy: 0        // @type {Number} 竖直偏移
-          });*/
    
           /**
            *点击空白处
@@ -220,9 +173,6 @@
               });
               self.infoTitle = '节点';
               self.name = ev.item.get('model').label;
-              self.func = ev.item.get('model').func;
-              self.account = ev.item.get('model').account || [];
-              self.workflow = ev.item.get('model').workflow;
               self.nodeType = ev.item.get('model').nodeType;
             } else {
               self.infoTitle = '边';
@@ -248,66 +198,69 @@
             });
             self.net.refresh();
           });
-          /**
-           * 提示信息
-           */
-         /* self.net.node().tooltip(['label', 'func', 'role', 'color']);
-          self.net.edge().tooltip(['label', 'color']);*/
-          /**
-           * 渲染
-           */
           /*self.net.source(self.nodes, self.edges);*/  //加载资源数据
           self.net.render();
         },
+        //添加起始节点
         addCircle() {
           this.net.beginAdd('node', {
             shape: 'circle',
             nodeType: 0
           })
-        },//添加起始节点
+        },
+        //添加常规节点
         addRect() {
           this.net.beginAdd('node', {
             shape: 'rect',
             nodeType: 0
           })
-        },//添加常规节点
+        },
+        //添加条件节点
         addRhombus() {
           this.net.beginAdd('node', {
             shape: 'rhombus',
             nodeType: 0
           })
-        }, //添加条件节点
+        }, 
+        //添加直线
         addLine() {
           this.net.beginAdd('edge', {
             shape: 'line'
           });
-        }, //添加直线
+        }, 
+        //添加曲线
         addSmooth() {
           this.net.beginAdd('edge', {
             shape: 'smooth'
           })
-        },  //添加曲线
+        }, 
+        //添加箭头曲线
         addArrowSmooth() {
           this.net.beginAdd('edge', {
             shape: 'smoothArrow'
           })
-        }, //添加箭头曲线
+        }, 
+        //添加箭头直线
         addArrowLine() {
           this.net.beginAdd('edge', {
             shape: 'arrow'
           });
-        }, //添加箭头直线
+        }, 
+        //添加折线
         addPolyLine() {
           this.net.beginAdd('edge', {
             shape: 'polyLineFlow'
           });
-        }, //添加折线
+        }, 
+        //拖拽与编辑模式的切换
         changeMode(mode) {
           this.net.changeMode(mode)
-        }, //拖拽与编辑模式的切换
+        }, 
+        //删除节点
         del() {
           this.net.del()
-        },//删除
+        },
+        //保存流程图
         save() {
           /* 验证流图名称*/
           if (this.workflowName !== '') {
@@ -330,14 +283,12 @@
             this.$message({type: 'error', message: '流图名称不能为空'})
           }
           /*console.log(saveData, json);*/
-        },//保存
+        },
+        //更新节点
         update() {
           if (this.activation.get('type') === 'node') {
             this.net.update(this.activation, {
               label: this.name,
-              func: this.func,
-              account: this.account,
-              workflow: this.workflow,
               nodeType: this.nodeType,
               color: this.color
             });
@@ -354,17 +305,19 @@
               action: this.action
             });
           }
-        },  //更新节点
+        },
+        //清空视图，重置画布
         clearView() {
           this.type = '';
           this.workflowName = '';
           this.net.changeData()
-        },   //清空视图
+        },
+        //渲染流程数据
         source(nodes, edges, name, type) {
           this.type = type;
           this.workflowName = name;
           this.net.changeData(nodes, edges)
-        },  //更新数据
+        },  
       },
       watch: {
         /**
@@ -374,15 +327,6 @@
           this.update()
         },
         name: function () {
-          this.update()
-        },
-        func: function () {
-          this.update()
-        },
-        account: function () {
-          this.update()
-        },
-        workflow: function () {
           this.update()
         },
         nodeType: function () {

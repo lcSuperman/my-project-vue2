@@ -35,9 +35,6 @@
       <flowChart
       ref="flow"
       :actionList="actionList"
-      :funcList="funcList"
-      :accountList="accountList"
-      :workflowList="workflowList"
        @saveData="saveData"
       ></flowChart>
     </div>
@@ -51,13 +48,10 @@
       data(){
         return {
           actionList:[
-            {id:'001',label:'发送'},
-            {id:'002',label:'成功'},
-            {id:'003',label:'失败'}
+            {id:'001',label:'拒绝'},
+            {id:'002',label:'通过'},
+            {id:'003',label:'下发'}
           ],
-          funcList:[],
-          accountList:[],
-          workflowList:[],
           tableData:[],
           clickName:"",//当前点击渲染的流程图
 
@@ -79,8 +73,8 @@
       
      },
      methods:{
+      
       saveData(source,type){
-        console.log('-----------',source,type)
         var isHave = false
         var indexNum 
         var filterTableData = this.tableData.filter( item => {
