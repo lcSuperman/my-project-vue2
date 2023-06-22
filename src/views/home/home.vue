@@ -95,8 +95,9 @@ export default {
      display: flex;
      justify-content: space-between;
      .wordCloud{
-        height: 600px;
+        height: 400px;
         width: 66%;
+        box-sizing: border-box;
         padding: 0 20px;
         box-shadow:0px 2px 8px #888888;
      }

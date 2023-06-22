@@ -370,6 +370,7 @@
    
     .info {
       position: absolute;
+      height: 100%;
       right: 0;
       z-index: 99;
       box-shadow: 1px 1px 4px 0 #0a0a0a2e;
