@@ -220,7 +220,7 @@ export default {
     width: 100%;
     position: relative;
     .sumNumber{
-      height: 16%;
+      height: 17%;
       width: 90%;
       position: absolute;
       top:0;
@@ -240,7 +240,7 @@ export default {
           color: #cecece;
           background:rgba(10, 48, 122, .5);
           box-sizing: border-box;
-          padding: 2% 0;
+          padding: 1% 0;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
@@ -251,7 +251,7 @@ export default {
           }
           .count{
             color: #b08d54;
-            font-size: 40px;
+            font-size: 35px;
             font-weight: 700;
           }
         }

@@ -257,7 +257,7 @@ export default {
           color: #cecece;
           background:rgba(10, 48, 122, .5);
           box-sizing: border-box;
-          padding: 2% 0;
+          padding: 1% 0;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
@@ -268,7 +268,7 @@ export default {
           }
           .count{
             color: #b08d54;
-            font-size: 40px;
+            font-size: 30px;
             font-weight: 700;
           }
         }
