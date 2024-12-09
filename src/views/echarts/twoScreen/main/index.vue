@@ -1,6 +1,6 @@
 <template>
   <div class="childrenOne">
-   <EchartHead title="华夏金租工程机械经营大屏"/>
+   <EchartHead title="李氏集团工程机械经营大屏"/>
    <div class="echarts">
         <ul class="grid-content left">
             <li class="left-center"> 
