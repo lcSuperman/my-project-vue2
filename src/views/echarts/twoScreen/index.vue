@@ -5,9 +5,12 @@
       <swiper :options="swiperOptionA">
         <swiper-slide>
           <swiper :options="swiperOptionB">
+            <swiper-slide><Main5/></swiper-slide>
+            <swiper-slide><Main4/></swiper-slide>
             <swiper-slide><Main /></swiper-slide>
             <swiper-slide><Main2 /></swiper-slide>
             <swiper-slide><Main3/></swiper-slide>
+          
             <!-- <div class="swiper-pagination swiper-pagination-b" slot="pagination"></div> -->
           </swiper>
         </swiper-slide>
@@ -19,6 +22,8 @@
 import Main from './main'
 import Main2 from './main2'
 import Main3 from './main3'
+import Main4 from './main4'
+import Main5 from './main5'
 export default {
   
    data() {
@@ -45,7 +50,9 @@ export default {
     components:{
         Main,
         Main2,
-        Main3
+        Main3,
+        Main4,
+        Main5
     }
 }
 </script>
@@ -54,7 +61,8 @@ export default {
  .children-contents{
     height: 100%;
     width:100%;
-    background: linear-gradient(#02152f,#051e52); 
+    // background: linear-gradient(#02152f,#051e52); 
+     background-color:#fff ; 
     .swiper-container{
         width: 100%;
         height: 100%;

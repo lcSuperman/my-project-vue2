@@ -1,13 +1,13 @@
 <template>
     <div class="graph">
-       <!-- <div class="graphContainer">
+       <div class="graphContainer">
           <h3>antv-G6 关系图</h3>
           <ForceGraph></ForceGraph>  
        </div>
        <div class="graphContainer">
           <h3>antv-G6 流程图</h3>
           <DagreGraph></DagreGraph>
-       </div> -->
+       </div>
        
     </div>
    
