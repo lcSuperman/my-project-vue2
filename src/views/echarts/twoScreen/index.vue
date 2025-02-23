@@ -5,6 +5,7 @@
       <swiper :options="swiperOptionA">
         <swiper-slide>
           <swiper :options="swiperOptionB">
+            <swiper-slide><Main6/></swiper-slide>
             <swiper-slide><Main5/></swiper-slide>
             <swiper-slide><Main4/></swiper-slide>
             <swiper-slide><Main /></swiper-slide>
@@ -24,6 +25,7 @@ import Main2 from './main2'
 import Main3 from './main3'
 import Main4 from './main4'
 import Main5 from './main5'
+import Main6 from './main6'
 export default {
   
    data() {
@@ -52,7 +54,8 @@ export default {
         Main2,
         Main3,
         Main4,
-        Main5
+        Main5,
+        Main6
     }
 }
 </script>

@@ -1,13 +1,13 @@
 <template>
-    <div id="myEchart1_2"></div>
+    <div id="myEchart1_4"></div>
  </template>
 <script>
 import * as echarts from 'echarts';
 export default {
     methods:{
         initEchart(echartData){
-            var chartDom = document.getElementById('myEchart1_2');
-            var myEchart1_2 = echarts.init(chartDom); 
+            var chartDom = document.getElementById('myEchart1_4');
+            var myEchart1_4 = echarts.init(chartDom); 
             var option;
             option = {
                 grid:{//设置图表距离容器位置配置
@@ -107,9 +107,9 @@ export default {
                     }
                 ]
             };
-            option && myEchart1_2.setOption(option);
+            option && myEchart1_4.setOption(option);
             window.addEventListener("resize", () => {
-                myEchart1_2.resize();
+                myEchart1_4.resize();
             })
         }
     }
@@ -117,7 +117,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-#myEchart1_2{
+#myEchart1_4{
     height:100%;;
     width: 100%;
 }

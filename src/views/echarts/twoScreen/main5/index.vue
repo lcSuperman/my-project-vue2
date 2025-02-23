@@ -3,12 +3,12 @@
      <div class="echarts_content">
           <ul class="echarts_ul">
              <li>
-                <span class="echart_title">暂存库物资存量（分地市分析）</span>
+                <span class="echart_title">各分公司站点未安装信息分析</span>
                 <Three></Three>
              </li>
              <li>
-                <span class="echart_title">全省暂存库库存趋势对比分析</span>
-               
+                <span class="echart_title">全省站点（未安装）趋势对比分析</span>
+                <Four></Four>
              </li>
           </ul>
      </div>
@@ -16,11 +16,11 @@
 </template>
 <script>
 import Three from '@/components/twoScreen/four/one_three'
-
+import Four from '@/components/twoScreen/four/one_four'
  export default{
    components:{
     Three,
-     
+    Four
    }
  }
 
