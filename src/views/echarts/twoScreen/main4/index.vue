@@ -39,6 +39,7 @@ import Two from '@/components/twoScreen/four/one_two'
         justify-content: space-between;
         box-sizing: border-box;
         padding:20px 20px 10px 20px;
+        background-color: #e3e3e3;
         .echarts_ul{
             height: 100%;
             width: 100%;

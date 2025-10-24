@@ -1,6 +1,6 @@
 <template>
     <div class="contents">
-        <EchartHead title="李氏集团营大屏"/>
+        <EchartHead title="李氏集团经营大屏"/>
         <router-view></router-view>
     </div>
 </template>

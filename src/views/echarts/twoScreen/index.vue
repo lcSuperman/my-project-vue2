@@ -5,13 +5,12 @@
       <swiper :options="swiperOptionA">
         <swiper-slide>
           <swiper :options="swiperOptionB">
-            <swiper-slide><Main6/></swiper-slide>
-            <swiper-slide><Main5/></swiper-slide>
-            <swiper-slide><Main4/></swiper-slide>
-            <swiper-slide><Main /></swiper-slide>
+             <swiper-slide><Main /></swiper-slide>
             <swiper-slide><Main2 /></swiper-slide>
             <swiper-slide><Main3/></swiper-slide>
-          
+             <swiper-slide><Main4/></swiper-slide>
+             <swiper-slide><Main5/></swiper-slide>
+            <swiper-slide><Main6/></swiper-slide>
             <!-- <div class="swiper-pagination swiper-pagination-b" slot="pagination"></div> -->
           </swiper>
         </swiper-slide>
@@ -64,8 +63,8 @@ export default {
  .children-contents{
     height: 100%;
     width:100%;
-    // background: linear-gradient(#02152f,#051e52); 
-     background-color:#fff ; 
+    background: linear-gradient(#02152f,#051e52); 
+    //  background-color:#fff ; 
     .swiper-container{
         width: 100%;
         height: 100%;
